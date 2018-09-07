@@ -7,80 +7,81 @@ public class Member {
 	String lastName;
 	String screenName;
 	String emailAddress;
-	Scanner scan = new Scanner;
+	Scanner scan = new Scanner();
 
-		//member constructor
-		Member(){
-			firstName = firstName;
-			lastName = lastName;
-			screenName = screenName;
-			emailAddress = emailAddress;
-			dateCreated = dateCreated;
+    public Member(String firstName, String lastName, String screenName, String emailAddress, LocalDateTime dateCreated){
+   
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.screenName = screenName;
+      this.emailAddress = emailAddress;
+      this.dateCreated = dateCreated;
+    }
 
-		}
+	public String getEmailAddress(){
 
-		//methods to get information
-		public static String getEmailAddress(){
+	}
 
-		}
+	public LocalDateTime getDateCreated(){
 
-		public static String getDateCreated(){
+	}
 
-		}
+	public String getFirstName(){
 
-		public static String getFirstName(){
 
-		}
-		public static String getLastName(){
+	}
+	public String getLastName(){
 			
-		}
+	}
 
-		public static String getScreenName(){
+	public String getScreenName(){
 			
-		}
+	}
 
-		//methods about groups
-		public static void joinGroup(String groupName){
+	public void joinGroup(String groupName){
 			
-		}
+	}
 
-		public static int getNumGroups(){
+	public int getNumGroups(){
 
-		}
+	}
 
-		public static Group getGroup(){
-
-		}
-
-		public static List<Group> getGroups(){
-
-		}
-
-		//questions - Do this
-
-		public static void addQuestion (Group, Question, LocalDateTime){
-			
-		}
-
-		public static LocalDateTime getDateJoined(Group){
-
-		}
-
-		public static void addAnswer(Group, Question,Answer, LocalDateTime){
-
-		}
-
-		public static List<Question> getQuestions(Group){
-
-		}
-
-		public static List<Answer> getAnswers(Group){
-
-		}
-
-		//tostring method
-		public static String toString(){
-
-		}
-
+   public int getGroup(String groupID){
+   
+   }
+   
+   public List<Group> getGroups(){
+   
+   }
+   
+   // Alaina
+   
+   public void addQuestion(Group group, Question question, LocalDateTime date){
+   
+   }
+   
+   public LocalDateTime getDateJoined(Group group){
+   
+   
+   }
+   
+   public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
+   
+   }
+   
+   public List<Question> getQuestions(Group group){
+   
+   
+   }
+   
+   public List<Answer> getAnswer(Group group){
+   
+   }
+   
+   //
+   
+   public String toString(){
+   
+   
+   }
 }
