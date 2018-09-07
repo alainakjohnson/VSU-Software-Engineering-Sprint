@@ -9,35 +9,31 @@ public class Member {
 	String emailAddress;
 	Scanner scan = new Scanner;
 
-	public static void main(String[] args){
-
-
-		public getEmailAddress(){
-
-		}
-
-		public getDateCreated(){
-
-		}
-
-		public getFirstName(){
-
-		}
-		public getLastName(){
-			
-		}
-
-		public getScreenName(){
-			
-		}
-
-		public joinGroup(String groupName){
-			
-		}
-
-		public getNumGroups(){
-
-		}
-
+	public getEmailAddress(){
 
 	}
+
+	public getDateCreated(){
+
+	}
+
+	public getFirstName(){
+
+	}
+	
+	public getLastName(){
+			
+	}
+
+	public getScreenName(){
+			
+	}
+
+	public joinGroup(String groupName){
+			
+	}
+
+	public getNumGroups(){
+
+	}
+}
