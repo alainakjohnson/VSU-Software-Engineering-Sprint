@@ -2,11 +2,10 @@ package sprint1;
 
 import java.io.*;
 import java.util.*;
-import java.time.LocalDateTime;
 
 public class Member {
 
-	private LocalDateTime dateCreated = new LocalDateTime.now();
+	private LocalDateTime dateCreated;
 	private String firstName;
 	private String lastName;
 	private String screenName;
