@@ -79,6 +79,10 @@ public class Member {
    
    public String toString(){
    
-   
+	   return "First Name" + firstName
+			+ "Last Name" + lastName
+	   		+ "Screen Name" + screenName
+	   		+ "Email Address" + emailAddress
+	   		+ "Account Created" + dateCreated;
    }
 }
