@@ -36,4 +36,12 @@ public class Member {
 	public getNumGroups(){
 
 	}
+	
+	public getGroup(String groupID) {
+	
+	}
+	
+	public getGroups() {
+		
+	}
 }
