@@ -2,42 +2,69 @@ import java.util.*;
 
 public class Member {
 
-	LocalDateTime dateCreated;
-	String firstName;
-	String lastName;
-	String screenName;
-	String emailAddress;
-	Scanner scan = new Scanner;
 
-	public static void main(String[] args){
-
-
-		public getEmailAddress(){
-
+		//methods to get information
+		public static String getEmailAddress(){
+			return emailAddress;
 		}
 
-		public getDateCreated(){
-
+		public static String getDateCreated(){
+			return dateCreated;
 		}
 
-		public getFirstName(){
-
+		public static String getFirstName(){
+			return firstName;
 		}
-		public getLastName(){
+		public static String getLastName(){
+			return lastName;
+		}
+
+		public static String getScreenName(){
+			return screenName;
+		}
+
+		//methods about groups
+		public static void joinGroup(String groupName){
 			
 		}
 
-		public getScreenName(){
-			
-		}
-
-		public joinGroup(String groupName){
-			
-		}
-
-		public getNumGroups(){
+		public static int getNumGroups(){
 
 		}
 
+		public static Group getGroup(){
+
+		}
+
+		public static List<Group> getGroups(){
+
+		}
+
+		//questions
+
+		public static void addQuestion (){
+
+		}
+
+		public static LocalDateTime getDateJoined(){
+
+		}
+
+		public static void addAnswer(){
+
+		}
+
+		public static List<Question> getQuestions(){
+
+		}
+
+		public static List<Answer> getAnswers(){
+
+		}
+
+		//tostring method
+		public static String toString(){
+
+		}
 
 	}
