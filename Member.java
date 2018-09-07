@@ -11,33 +11,78 @@ public class Member {
 
 	public static void main(String[] args){
 
+		//member constructor
+		Member(){
+			firstName = firstName;
+			lastName = lastName;
+			screenName = screenName;
+			emailAddress = emailAddress;
+			dateCreated = dateCreated;
 
-		public getEmailAddress(){
+		}
+
+		//methods to get information
+		public static String getEmailAddress(){
 
 		}
 
-		public getDateCreated(){
+		public static String getDateCreated(){
 
 		}
 
-		public getFirstName(){
+		public static String getFirstName(){
 
 		}
-		public getLastName(){
+		public static String getLastName(){
 			
 		}
 
-		public getScreenName(){
+		public static String getScreenName(){
 			
 		}
 
-		public joinGroup(String groupName){
+		//methods about groups
+		public static void joinGroup(String groupName){
 			
 		}
 
-		public getNumGroups(){
+		public static int getNumGroups(){
 
 		}
 
+		public static Group getGroup(){
+
+		}
+
+		public static List<Group> getGroups(){
+
+		}
+
+		//questions
+
+		public static void addQuestion (){
+
+		}
+
+		public static LocalDateTime getDateJoined(){
+
+		}
+
+		public static void addAnswer(){
+
+		}
+
+		public static List<Question> getQuestions(){
+
+		}
+
+		public static List<Answer> getAnswers(){
+
+		}
+
+		//tostring method
+		public static String toString(){
+
+		}
 
 	}
