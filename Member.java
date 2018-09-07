@@ -7,41 +7,79 @@ public class Member {
 	String lastName;
 	String screenName;
 	String emailAddress;
-	Scanner scan = new Scanner;
+	Scanner scan = new Scanner();
 
-	public getEmailAddress(){
+   public Member(String firstName, String lastName, String screenName, String emailAddress, LocalDateTime dateCreated){
+   
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.screenName = screenName;
+      this.emailAddress = emailAddress;
+      this.dateCreated = dateCreated;
+   }
+
+	public String getEmailAddress(){
 
 	}
 
-	public getDateCreated(){
+	public LocalDateTime getDateCreated(){
 
 	}
 
-	public getFirstName(){
+	public String getFirstName(){
+
 
 	}
-	
-	public getLastName(){
+	public String getLastName(){
 			
 	}
 
-	public getScreenName(){
+	public String getScreenName(){
 			
 	}
 
-	public joinGroup(String groupName){
+	public void joinGroup(String groupName){
 			
 	}
 
-	public getNumGroups(){
+	public int getNumGroups(){
 
 	}
-	
-	public getGroup(String groupID) {
-	
-	}
-	
-	public getGroups() {
-		
-	}
+
+   public int getGroup(String groupID){
+   
+   }
+   
+   public List<Group> getGroups(){
+   
+   }
+   
+   public void addQuestion(Group group, Question question, LocalDateTime date){
+   
+   }
+   
+   public LocalDateTime getDateJoined(Group group){
+   
+   
+   }
+   
+   public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
+   
+   }
+   
+   public List<Question> getQuestions(Group group){
+   
+   
+   }
+   
+   public List<Answer> getAnswer(Group group){
+   
+   
+   }
+   
+   public String toString(){
+   
+   
+   }
+   
 }
