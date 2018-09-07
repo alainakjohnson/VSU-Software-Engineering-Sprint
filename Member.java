@@ -9,8 +9,6 @@ public class Member {
 	String emailAddress;
 	Scanner scan = new Scanner;
 
-	public static void main(String[] args){
-
 		//member constructor
 		Member(){
 			firstName = firstName;
@@ -58,25 +56,25 @@ public class Member {
 
 		}
 
-		//questions
+		//questions - Do this
 
-		public static void addQuestion (){
+		public static void addQuestion (Group, Question, LocalDateTime){
+			
+		}
+
+		public static LocalDateTime getDateJoined(Group){
 
 		}
 
-		public static LocalDateTime getDateJoined(){
+		public static void addAnswer(Group, Question,Answer, LocalDateTime){
 
 		}
 
-		public static void addAnswer(){
+		public static List<Question> getQuestions(Group){
 
 		}
 
-		public static List<Question> getQuestions(){
-
-		}
-
-		public static List<Answer> getAnswers(){
+		public static List<Answer> getAnswers(Group){
 
 		}
 
@@ -85,4 +83,4 @@ public class Member {
 
 		}
 
-	}
+}
