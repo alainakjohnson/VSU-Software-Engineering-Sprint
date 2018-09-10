@@ -7,7 +7,6 @@ public class Member {
 	String lastName;
 	String screenName;
 	String emailAddress;
-	Scanner scan = new Scanner();
 
    public Member(String firstName, String lastName, String screenName, String emailAddress, LocalDateTime dateCreated){
    
