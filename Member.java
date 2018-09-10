@@ -38,48 +38,48 @@ public class Member {
 			
 	}
 
-	public void joinGroup(String groupName){
-			
+	public void joinGroup(String groupName LocalDateTime dateCreated){
+		
 	}
 
 	public int getNumGroups(){
-
+		
 	}
 
-   public int getGroup(String groupID){
+    public int getGroup(String groupID){
    
-   }
+    }
    
-   public List<Group> getGroups(){
+    public List<Group> getGroups(){
    
-   }
+    }
    
-   public void addQuestion(Group group, Question question, LocalDateTime date){
+    public void addQuestion(Group group, Question question, LocalDateTime date){
+    	
+    }
    
-   }
-   
-   public LocalDateTime getDateJoined(Group group){
-   
-   
-   }
-   
-   public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
-   
-   }
-   
-   public List<Question> getQuestions(Group group){
+    public LocalDateTime getDateJoined(Group group){
    
    
-   }
+    }
    
-   public List<Answer> getAnswer(Group group){
+    public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
+   
+    }
+   
+    public List<Question> getQuestions(Group group){
    
    
-   }
+    }
    
-   public String toString(){
+    public List<Answer> getAnswer(Group group){
    
    
-   }
+    }
+   
+    public String toString(){
+   
+   
+    }
    
 }
