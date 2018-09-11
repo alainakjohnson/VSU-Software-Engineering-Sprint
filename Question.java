@@ -20,14 +20,14 @@ import java.util.*;
 		}
 
 		public void addAnswer(Answer answer){
-			this.Answer = string;
-			List<Answer> Answers = new List<>
+			this.Answer = answer;
+			List<Answer> Answers = new List<>;
 
 			Answers.add(this.Answer);
 		}
 
 		public List<Answer> getAnswer(){
-			return List<Answer>
+			return List<Answer>;
 		}
 
 		public String toString(){
