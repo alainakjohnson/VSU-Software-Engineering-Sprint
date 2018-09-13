@@ -12,7 +12,7 @@ public class Group{
 	}
 	
 	public int getNumMembers() {
-		
+		return this.List<Members>.size;
 	}
 	
 	public Member getMember(String emailAddress) {
@@ -20,7 +20,7 @@ public class Group{
 	}
 	
 	public List<Member> getMembers(){
-
+		
 	}
 	
 	public List<Question> getQuestions(){

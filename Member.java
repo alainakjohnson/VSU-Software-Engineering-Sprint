@@ -18,28 +18,31 @@ public class Member {
    }
 
 	public String getEmailAddress(){
-
+		return emailAddress;
 	}
 
 	public LocalDateTime getDateCreated(){
-
+		return dateCreated;
 	}
 
 	public String getFirstName(){
-
+		return firstName;
 
 	}
 	public String getLastName(){
-			
+		return lastName;
 	}
 
 	public String getScreenName(){
-			
+		return screenName;
 	}
 
 	public void joinGroup(Group group, LocalDateTime dateJoined){
 		List<Group> groups = new List;
+		List<Members> members = new list;
 		groups.add(this.Group);
+		members.add(this.Member);
+		
 	}
 
 	public int getNumGroups(){
@@ -47,12 +50,11 @@ public class Member {
 	}
 
     public Group getGroup(String groupID){
-    	this.groupID = group;
-    	return group;
+    	
     }
    
     public List<Group> getGroups(){
-    	groups = this.List<Groups>;
+    	groups = this.List<Group>;
     	return groups;
     }
    
