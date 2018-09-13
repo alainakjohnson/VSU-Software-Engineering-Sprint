@@ -37,20 +37,23 @@ public class Member {
 			
 	}
 
-	public void joinGroup(String groupName LocalDateTime dateCreated){
-		
+	public void joinGroup(Group group, LocalDateTime dateJoined){
+		List<Group> groups = new List;
+		groups.add(this.Group);
 	}
 
 	public int getNumGroups(){
 		
 	}
 
-    public int getGroup(String groupID){
-   
+    public Group getGroup(String groupID){
+    	this.groupID = group;
+    	return group;
     }
    
     public List<Group> getGroups(){
-   
+    	groups = this.List<Groups>;
+    	return groups;
     }
    
     public void addQuestion(Group group, Question question, LocalDateTime date){
