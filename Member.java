@@ -38,27 +38,32 @@ public class Member {
 		return screenName;
 	}
 
+	// joins member to group and records time.
 	public void joinGroup(Group group, LocalDateTime dateJoined){		
 		group.add(this.Member)
 		dateJoined = LocalDateTime
 	}
 
+	//returns the number of groups this member is a member of.
 	public int getNumGroups(){
 		return this.getGroups().size;
 	}
 
+	//returns the group that corresponds to the groupid.
     public Group getGroup(String groupID){
     	for (int i = 0; i < this.List<Group>.size; i++) {
 			if(this.List<Group>.get(i).title == groupID)
 				return this.List<Group>.get(i);
     }
    
+   //returns a list of all groups the member is a member of.
    public List<Group> getGroups(){
-    	List<Group> groups = new List;
 		groups.add();
     	return groups;
    }
    
+   //adds the question to the group by this member
+   //records date asked
    public void addQuestion(Group group, Question question, LocalDateTime date){ 
 		group.add(this.Question);
 		date = LocalDateTime;
@@ -68,17 +73,21 @@ public class Member {
 		return joinGroup.dateJoined;
    }
    
+   //adds this member's answer to the question, which is in this group.
+   //records date answered.
    public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
 		group.add(this.Answer);
 		date = LocalDateTime;
    }
    
+   //returns all questions asked by this member in this group
    public List<Question> getQuestions(Group group){
-		return Questions;
+		return group.Questions; // need to specify by member
    }
    
+   //returns all answers answered by this member in this group
    public List<Answer> getAnswer(Group group){   
-		return Answers;
+		return group.Answers; // need to specify by member
    }
   
    public String toString(){
