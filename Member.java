@@ -18,43 +18,47 @@ public class Member {
       this.dateCreated = dateCreated;
     }
 
-	public String getEmailAddress(){
-
+	public static String getEmailAddress(){
+		return emailAddress;
 	}
 
-	public LocalDateTime getDateCreated(){
-
+	public static String getDateCreated(){
+		return dateCreated;
 	}
 
-	public String getFirstName(){
-
-
+	public static String getFirstName(){
+		return firstName;
 	}
-	public String getLastName(){
-			
-	}
-
-	public String getScreenName(){
-			
+	
+	public static String getLastName(){
+		return lastName;
 	}
 
-	public void joinGroup(String groupName){
-			
+	public static String getScreenName(){
+		return screenName;
+	}
+
+	public void joinGroup(Group group, LocalDateTime dateJoined){
+		List<Group> groups = new List;
+		List<Member> members = new list;
+		groups.add(this.Group);
+		members.add(this.Member);
 	}
 
 	public int getNumGroups(){
-
+		return this.List<Group>.size;
 	}
 
-   public int getGroup(String groupID){
-   
-   }
+    public Group getGroup(String groupID){
+    	for (int i = 0; i < this.List<Group>.size; i++) {
+			if(this.List<Group>.get(i).title == groupID)
+				return this.List<Group>.get(i);
+    }
    
    public List<Group> getGroups(){
-   
+    	groups = this.List<Group>;
+    	return groups;
    }
-   
-   // Alaina
    
    public void addQuestion(Group group, Question question, LocalDateTime date){
 		List<Question> Questions = new List; 
@@ -63,30 +67,26 @@ public class Member {
    
    public LocalDateTime getDateJoined(Group group){
 		return dateCreated;
-   
    }
    
    public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
 	   List<Answer> Answers = new List; 
-	   Answers.add(this.Answer);
-			
+	   Answers.add(this.Answer);		
    }
    
    public List<Question> getQuestions(Group group){
-		
 		return Questions;
-   
    }
    
-   public List<Answer> getAnswer(Group group){
-   
+   public List<Answer> getAnswer(Group group){   
 		return Answers;
    }
-   
-   //
-   
+  
    public String toString(){
-   
-   
+	    return "First Name" + firstName
+			+ "Last Name" + lastName
+	   		+ "Screen Name" + screenName
+	   		+ "Email Address" + emailAddress
+	   		+ "Account Created" + dateCreated;
    }
 }
