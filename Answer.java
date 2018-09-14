@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Answer extends Post {
+class Answer extends Post {
 		public Answer(Question question, String answer, LocalDateTime dateCreated){
 		      answer = text;
 		      this.question = question;//Need to change this to relate to actual question

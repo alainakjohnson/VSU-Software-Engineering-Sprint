@@ -30,15 +30,15 @@ public abstract class Post {
 		this.text = text;
 	}
 	
-	//public Member getAuthor() {
+	public Member getAuthor() {
 		
-		//return Member.screenName;
-	//}
+		return;
+	}
 	
-	//public Group getGroup() {
+	public Group getGroup() {
 		
-		//return Group;
-	//}
+		return;
+	}
 	
 	protected void setMembership(Membership membership) {
 		
