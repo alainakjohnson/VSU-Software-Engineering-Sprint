@@ -10,7 +10,7 @@ public class Member {
 	Scanner scan = new Scanner();
 
     public Member(String firstName, String lastName, String screenName, String emailAddress, LocalDateTime dateCreated){
-   
+ 
       this.firstName = firstName;
       this.lastName = lastName;
       this.screenName = screenName;
@@ -38,15 +38,13 @@ public class Member {
 		return screenName;
 	}
 
-	public void joinGroup(Group group, LocalDateTime dateJoined){
-		List<Group> groups = new List;
-		List<Member> members = new list;
-		groups.add(this.Group);
-		members.add(this.Member);
+	public void joinGroup(Group group, LocalDateTime dateJoined){		
+		group.add(this.Member)
+		dateJoined = LocalDateTime
 	}
 
 	public int getNumGroups(){
-		return this.List<Group>.size;
+		return this.getGroups().size;
 	}
 
     public Group getGroup(String groupID){
@@ -56,7 +54,8 @@ public class Member {
     }
    
    public List<Group> getGroups(){
-    	groups = this.List<Group>;
+    	List<Group> groups = new List;
+		groups.add();
     	return groups;
    }
    
@@ -66,7 +65,7 @@ public class Member {
    }
    
    public LocalDateTime getDateJoined(Group group){
-		return dateCreated;
+		return joinGroup.dateJoined;
    }
    
    public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
