@@ -5,8 +5,8 @@ import java.util.*;
 
 		public Question(String title, String question, LocalDateTime dateCreated){
 		      this.title = title;
-		      this.question = question;
-		      this.dateCreated = dateCreated;
+		      this.question = text;
+		      this.dateCreated = date;
 		   }
 
 		public String getTitle(){
@@ -29,5 +29,7 @@ import java.util.*;
 		}
 
 		public String toString(){
-			return null;
+			return getTitle() + 
+				   getText() +
+				   "Created by user " + getAuthor() + " on " + getDate();
 		}
