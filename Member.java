@@ -59,9 +59,9 @@ public class Member {
     	return groups;
    }
    
-   public void addQuestion(Group group, Question question, LocalDateTime date){
-		List<Question> Questions = new List; 
-		Questions.add(this.Question);
+   public void addQuestion(Group group, Question question, LocalDateTime date){ 
+		group.add(this.Question);
+		date = LocalDateTime;
    }
    
    public LocalDateTime getDateJoined(Group group){
@@ -69,8 +69,8 @@ public class Member {
    }
    
    public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
-	   List<Answer> Answers = new List; 
-	   Answers.add(this.Answer);		
+		group.add(this.Answer);
+		date = LocalDateTime;
    }
    
    public List<Question> getQuestions(Group group){
