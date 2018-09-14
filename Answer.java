@@ -1,8 +1,7 @@
 import java.util.*;
 
-public class Answer {
+public class Answer implements Post {
 		public Answer(Question question, String answer, LocalDateTime dateCreated){
-
 		      this.title = title;
 		      this.question = question;
 		      this.dateCreated = dateCreated;

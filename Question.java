@@ -1,11 +1,9 @@
 import java.util.*;
 
-
-	public class Question {
+	public class Question extends Post {
 		private String title;
 
 		public Question(String title, String question, LocalDateTime dateCreated){
-
 		      this.title = title;
 		      this.question = question;
 		      this.dateCreated = dateCreated;
