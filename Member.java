@@ -53,9 +53,10 @@ public class Member {
 
 	//returns the group that corresponds to the groupid.
     public Group getGroup(String groupID){
-    	for (int i = 0; i < this.List<Group>.size; i++) {
-			if(this.List<Group>.get(i).title == groupID)
-				return this.List<Group>.get(i);
+		for each id of groupID{
+			String title = getGroups().get(i).title;
+			if(title == groupID)
+				return title;
     }
    
    //returns a list of all groups the member is a member of.
