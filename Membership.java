@@ -1,3 +1,6 @@
+
+package sprint1;
+
 class Membership{
    
    private LocalDateTime dateJoined;

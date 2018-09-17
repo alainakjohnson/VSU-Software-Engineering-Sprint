@@ -1,3 +1,5 @@
+package sprint1;
+
 import java.util.*;
 
 class Answer extends Post {

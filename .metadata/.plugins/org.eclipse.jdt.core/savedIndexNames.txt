@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+C:\Users\Ryan\Downloads\cmder_mini\retrull\team5_fall18\.metadata\.plugins\org.eclipse.jdt.core
