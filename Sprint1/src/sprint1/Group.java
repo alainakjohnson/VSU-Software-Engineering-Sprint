@@ -14,6 +14,22 @@ public class Group{
 		this.dateCreated = dateCreated;
 	}
 	
+	public LocalDateTime getDateCreated() {
+		
+		return dateCreated;
+	}
+	
+	public String getTitle() {
+		
+		return title;
+	}
+	
+	public String getDescription() {
+		
+		return description;
+		
+	}
+	
 //	public int getNumMembers() {
 //		return this.List<Members>.size;
 //	}
