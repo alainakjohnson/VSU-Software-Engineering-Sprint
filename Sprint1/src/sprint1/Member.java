@@ -4,11 +4,11 @@ import java.time.LocalDateTime;
 
 public class Member {
 
-	LocalDateTime dateCreated;
-	String firstName;
-	String lastName;
-	String screenName;
-	String emailAddress;
+	private LocalDateTime dateCreated;
+	private String firstName;
+	private String lastName;
+	private String screenName;
+	private String emailAddress;
 
     public Member(String firstName, String lastName, String screenName, String emailAddress, LocalDateTime dateCreated){
  
@@ -42,8 +42,11 @@ public class Member {
 	// joins member to group and records time.
 	public void joinGroup(Group group, LocalDateTime dateJoined){		
 		
-		
+		dateJoined = LocalDateTime.now();
+		joinAsMember(group);
 	}
+	
+	
 
 	//returns the number of groups this member is a member of.
 	public int getNumGroups(){
