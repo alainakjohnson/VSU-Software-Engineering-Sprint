@@ -1,6 +1,8 @@
 package sprint1;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Member {
 
@@ -9,6 +11,8 @@ public class Member {
 	private String lastName;
 	private String screenName;
 	private String emailAddress;
+	
+	List<Group> joinedGroups = new ArrayList<Group>();
 
     public Member(String firstName, String lastName, String screenName, String emailAddress, LocalDateTime dateCreated){
  
@@ -43,27 +47,37 @@ public class Member {
 	public void joinGroup(Group group, LocalDateTime dateJoined){		
 		
 		dateJoined = LocalDateTime.now();
-		joinAsMember(group);
+		group.memberList.add(this);
+		joinedGroups.add(group);
 	}
 	
 	
 
 	//returns the number of groups this member is a member of.
 	public int getNumGroups(){
-		return 1;
+		int numJoined = 0;
+		for(int i = 0; i < joinedGroups.size(); i++) {
+			if(joinedGroups.get(i) != null) {
+				
+				numJoined++;
+			}
+			
+		}
+		return numJoined;
 	}
 
-//	//returns the group that corresponds to the groupid.
-//    public Group getGroup(String groupID){
-//	
-//    }
+	//returns the group that corresponds to the groupid.
+    public Group getGroup(String groupID){
+    	
+    	return Membership.retrieveGroup(groupID);
+    }
    
-//   //returns a list of all groups the member is a member of.
-//   public List<Group> getGroups(){
-//		groups.add();
-//    	return groups;
-//   }
-//   
+   //returns a list of all groups the member is a member of.
+   public List<Group> getGroups(){
+		
+	   return joinedGroups;
+   }
+   
    //adds the question to the group by this member
    //records date asked
 //   public void addQuestion(Group group, Question question, LocalDateTime date){ 
