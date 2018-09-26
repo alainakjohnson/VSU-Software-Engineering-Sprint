@@ -13,7 +13,11 @@ class Membership{
   
    
    private static List<Group> groupList = new ArrayList<Group>();
-   //private static List<Member> unassignedMembers;
+   
+   public Membership() {
+	   
+	   
+   }
    
    public static void storeGroup(Group group) {
 	   
