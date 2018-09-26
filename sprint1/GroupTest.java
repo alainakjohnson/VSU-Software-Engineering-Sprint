@@ -19,7 +19,7 @@ public class GroupTest {
 		Membership.storeGroup(group2);
 		
 		//Display the info for Java Beginners
-		System.out.print("\n\n" + group1.toString());
+		System.out.print("\nTESTING GROUP toString METHOD:\n" + group1.toString());
 		//Display the list of groups
 		System.out.println("\n");
 		Membership.displayGroupList();
