@@ -11,11 +11,11 @@ public class Member {
 	private String lastName;
 	private String screenName;
 	private String emailAddress;
-	
+
 	List<Group> joinedGroups = new ArrayList<Group>();
 
     public Member(String firstName, String lastName, String screenName, String emailAddress, LocalDateTime dateCreated){
- 
+
       this.firstName = firstName;
       this.lastName = lastName;
       this.screenName = screenName;
@@ -34,7 +34,7 @@ public class Member {
 	public String getFirstName(){
 		return firstName;
 	}
-	
+
 	public String getLastName(){
 		return lastName;
 	}
@@ -44,72 +44,72 @@ public class Member {
 	}
 
 	// joins member to group and records time.
-	public void joinGroup(Group group, LocalDateTime dateJoined){		
-		
+	public void joinGroup(Group group, LocalDateTime dateJoined){
+
 		dateJoined = LocalDateTime.now();
 		group.memberList.add(this);
 		joinedGroups.add(group);
 	}
-	
-	
+
+
 
 	//returns the number of groups this member is a member of.
 	public int getNumGroups(){
 		int numJoined = 0;
 		for(int i = 0; i < joinedGroups.size(); i++) {
 			if(joinedGroups.get(i) != null) {
-				
+
 				numJoined++;
 			}
-			
+
 		}
 		return numJoined;
 	}
 
 	//returns the group that corresponds to the groupid.
     public Group getGroup(String groupID){
-    	
+
     	return Membership.retrieveGroup(groupID);
     }
-   
+
    //returns a list of all groups the member is a member of.
    public List<Group> getGroups(){
-		
+
 	   return joinedGroups;
    }
-   
-   //adds the question to the group by this member
-   //records date asked
-//   public void addQuestion(Group group, Question question, LocalDateTime date){ 
-//		group.add(this.Question);
-//		date = LocalDateTime;
-//   }
-//   
-//   public LocalDateTime getDateJoined(Group group){
-//		return joinGroup.dateJoined;
-//   }
-//   
-//   //adds this member's answer to the question, which is in this group.
-//   //records date answered.
-//   public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
-//		group.add(this.Answer);
-//		date = LocalDateTime;
-//   }
-//   
-//   //returns all questions asked by this member in this group
-//   public List<Question> getQuestions(Group group){
-//		
-//	   return group.getQuestions();
-//
-//   }
-//   
-//   //returns all answers answered by this member in this group
-//   public List<Answer> getAnswer(Group group){   
-//
-//		return group.getAnswers();
-//
-//   }
-  
+
+   adds the question to the group by this member
+   records date asked
+   public void addQuestion(Group group, Question question, LocalDateTime date){
+		group.add(this.Question);
+		date = LocalDateTime;
+   }
+
+   public LocalDateTime getDateJoined(Group group){
+		return joinGroup.dateJoined;
+   }
+
+   //adds this member's answer to the question, which is in this group.
+   //records date answered.
+   public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
+		group.add(this.Answer);
+		date = LocalDateTime;
+   }
+
+   //returns all questions asked by this member in this group
+   public List<Question> getQuestions(Group group){
+
+	   return group.getQuestions();
+
+   }
+
+   //returns all answers answered by this member in this group
+   public List<Answer> getAnswer(Group group){
+
+		return group.getAnswers();
+
+   }
+
    public String toString(){
 	    return "\nFirst Name:" + firstName
 			+ "\nLast Name:" + lastName
