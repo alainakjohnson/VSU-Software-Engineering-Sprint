@@ -11,7 +11,6 @@ public class Member {
 	private String lastName;
 	private String screenName;
 	private String emailAddress;
-
 	private List<Membership> memberships = new ArrayList<Membership>();
 
     public Member(String firstName, String lastName, String screenName, String emailAddress, LocalDateTime dateCreated){
@@ -46,8 +45,9 @@ public class Member {
 	// joins member to group and records time joined
 	public void joinGroup(Group group, LocalDateTime dateJoined){
 		dateJoined = LocalDateTime.now();
-		//this needs to be passed in, tho. maybe pulled from membership class
-		memberships.add(emailAddress, group, dateJoined);
+		Membership membership = new Membership(this, group, dateJoined);
+		memberships.add(membership);
+		group.addMembership(membership);
 	}
 
 	//returns the number of groups this member is a member of.
@@ -58,9 +58,9 @@ public class Member {
 	//returns the group that corresponds to the groupid *under the assumption groupID = title.
     public Group getGroup(String groupID){
     	Group group = null;
-		for(int i = 0; i < memberships.size(); i++) {
-			if(memberships.get(i).getTitle().equals(groupID)) {
-				group = memberships.get(i);
+		for(Membership m : memberships) {
+			if(m.getGroup().getTitle().equals(groupID)) {
+				group = m.getGroup();
 			}
 		}
 		return group;
@@ -68,19 +68,23 @@ public class Member {
 
    //returns a list of all groups the member is a member of.
    public List<Group> getGroups(){
-	   return memberships;
+	   List<Group> tempGroupList = new ArrayList<Group>();
+	   		for(Membership m : memberships) {
+	   			tempGroupList.add(m.getGroup());
+	   			}
+	   return tempGroupList;
    }
 
-   //adds the question to the group by this member
-   //records date asked
+//   adds the question to the group by this member
+//   records date asked
 //   public void addQuestion(Group group, Question question, LocalDateTime date){
 //		group.add(this.Question);
 //		date = LocalDateTime;
 //   }
 
 //   public LocalDateTime getDateJoined(Group group){
-//	   return dateJoined;
-//	   //need to probably create a helper method to grab "dateJoined" from memberships
+//	   return getDateJoined;
+// ***********Although this can be easily implemented by simply calling getDateJoined helper method on the membership method, we need to go through Groups, not sure how to do that.
 //   }
 
 //   //adds this member answer to the question, which is in this group.
@@ -89,20 +93,20 @@ public class Member {
 //		group.add(this.Answer);
 //		date = LocalDateTime;
 //   }
-//
-//   //returns all questions asked by this member in this group
-//   public List<Question> getQuestions(Group group){
-//
-//	   return group.getQuestions();
-//
-//   }
-//
-//   //returns all answers answered by this member in this group
-//   public List<Answer> getAnswer(Group group){
-//
-//		return group.getAnswers();
-//
-//   }
+
+   //returns all questions asked by this member in this group
+   public List<Question> getQuestions(Group group){
+
+	   return group.getQuestions();
+
+   }
+
+   //returns all answers answered by this member in this group
+   public List<Answer> getAnswer(Group group){
+
+		return group.getAnswers();
+
+   }
 
    public String toString(){
 	    return "\nFirst Name:" + firstName

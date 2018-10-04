@@ -6,12 +6,10 @@ import java.util.List;
 
 class Membership{
 
-   private int points;
-   private LocalDateTime dateJoined = LocalDateTime.now();
-
+   //private int points;
+   private LocalDateTime dateJoined;
    private Member member;
    private Group group;
-
    private List<Question> questions = new ArrayList<Question>();
    private List<Answer> answers = new ArrayList<Answer>();
 

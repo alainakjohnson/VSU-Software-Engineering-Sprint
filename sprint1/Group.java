@@ -1,4 +1,3 @@
-
 package sprint1;
 
 import java.time.LocalDateTime;
@@ -13,30 +12,29 @@ public class Group{
 	private List<Answer> answers = new ArrayList<Answer>();
 	private List<Membership> memberships = new ArrayList<Membership>();
 
-
 	public Group(String title, String description, LocalDateTime dateCreated) {
 		this.title = title;
 		this.description = description;
 		this.dateCreated = dateCreated;
-
 	 }
 
-
 	public LocalDateTime getDateCreated() {
-
 		return dateCreated;
 	}
 
 	public String getTitle() {
-
 		return title;
 	}
 
 	public String getDescription() {
-
 		return description;
-
 	}
+
+	//helper to add group to membership
+	void addMembership (Membership membership){
+		memberships.add(membership);
+	}
+	//
 
 	public int getNumMembers() {
 		return memberships.size();
@@ -44,16 +42,20 @@ public class Group{
 
 	public Member getMember(String emailAddress) {
 		Member member = null;
-		for(int i = 0; i < memberships.size(); i++) {
-			if(memberships.getMember(i).getMember.equals(emailAddress)) {
-				member = memberships.get(i);
+		for(Membership m : memberships) {
+			if(m.getMember().getEmailAddress().equals(emailAddress)) {
+				member = m.getMember();
 			}
 		}
 		return member;
 	}
 
 	public List<Member> getMembers(){
-		return memberships.getMember();
+		List<Member> tempMemberList = new ArrayList<Member>();
+			for(Membership m : memberships) {
+				tempMemberList.add(m.getMember());
+			}
+		return tempMemberList;
 	}
 
 	public List<Question> getQuestions(){
@@ -70,10 +72,4 @@ public class Group{
 				+ "\nDate Created: " + dateCreated;
 	}
 
-	// off the record
-
-	//method to add group to membership
-	private void getMembership(Membership memberships){
-		memberships.add(GROUP);
-	}
 }

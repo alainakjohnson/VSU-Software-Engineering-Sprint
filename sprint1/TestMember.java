@@ -21,8 +21,6 @@ public class TestMember {
 		System.out.print("\n\nMEMBER getLastName METHOD FOR BOB SMITH:\n\tLast Name: " + member1.getLastName() + "\n");
 		//screen name
 		System.out.print("\n\nMEMBER getScreenName METHOD FOR BOB SMITH:\n\tScreen Name: " + member1.getScreenName() + "\n");
-		//join group
-//		System.out.print("\n\nMEMBER dateJoined METHOD FOR BOB SMITH:\n\tDate member joined Group Java Beginngers" + member1.joinGroup(group1, Membership.getDateJoined(group1)) + "\n");
 		//number of groups
 		System.out.print("\n\nMEMBER getNumGroups METHOD FOR BOB SMITH:\n\tNumber of Groups this member is a member of: " + member1.getNumGroups() + "\n");
 		//get group
@@ -39,7 +37,6 @@ public class TestMember {
 //		System.out.print("\n\nMEMBER getQuestions METHOD FOR BOB SMITH:\n\tQuestions asked by this member: " + member1.getQuestions() + "\n");
 //		//get answers
 //		System.out.print("\n\nMEMBER getAnswers METHOD FOR BOB SMITH:\n\tAnswers said by this member: " + member1.getAnswers() + "\n");
-
 	}
 
 }

@@ -7,7 +7,6 @@ public class TestGroup {
 	public static void main(String[] args) {
 		Group group1 = new Group("Java Beginners", "A group for beginners", LocalDateTime.now());
 
-
 		//Display the info for Java Beginners
 		System.out.print("\nDISPLAYING THE toString METHOD OF GROUP:\n\t" + group1.toString());
 		//Display the list of groups
@@ -23,14 +22,13 @@ public class TestGroup {
 		//number of members
 		System.out.print("\nDISPLAYING getNumMembers FOR JAVA BEGINNERS GROUP:\n\n\tNumber of Members: " + group1.getNumMembers() + "\n");
 		//member
-//		System.out.print("\nDISPLAYING getMember FOR JAVA BEGINNERS GROUP:\n\n\tMember associated with HSimpson@gmail.com: " + group1.getMember("HSimpson@gmail.com") + "\n");
-//		//get members
-//		System.out.print("\nDISPLAYING getMembers FOR JAVA BEGINNERS GROUP:\n\n\tMembers: " + group1.getMembers() + "\n");
+		System.out.print("\nDISPLAYING getMember FOR JAVA BEGINNERS GROUP:\n\n\tMember associated with HSimpson@gmail.com: " + group1.getMember("HSimpson@gmail.com") + "\n");
+		//get members
+		System.out.print("\nDISPLAYING getMembers FOR JAVA BEGINNERS GROUP:\n\n\tMembers: " + group1.getMembers() + "\n");
 		//get questions
 		System.out.print("\n\nDISPLAYING getQuestions FOR JAVA BEGINNERS GROUP:\n\n\tQuestions Asked: " + group1.getQuestions() + "\n");
 		//get answers
 		System.out.print("\n\nDISPLAYING getAnswers FOR JAVA BEGINNERS GROUP:\n\n\tQuestions Answered: " + group1.getAnswers() + "\n");
-
 	}
 
 }

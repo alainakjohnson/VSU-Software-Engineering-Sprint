@@ -12,15 +12,15 @@ public class IntTestDisplay{
 		Member member2 = new Member("Homer", "Simpson", "donuts", "HSimpson@gmail.com", LocalDateTime.now());
 
 		//Storing groups in the membership list of groups
-		Membership.storeGroup(group1);
-		Membership.storeGroup(group2);
+//		Membership.storeGroup(group1);
+//		Membership.storeGroup(group2);
 
 		//Display the info for Java Beginners
 		System.out.print("GROUP INFO:\n" + group1.toString());
 		//Display the list of groups
-		System.out.println("\n\nDISPLAYING THE LIST OF GROUPS:");
-		Membership.displayGroupList();
-		System.out.println("\n");
+//		System.out.println("\n\nDISPLAYING THE LIST OF GROUPS:");
+//		Membership.displayGroupList();
+//		System.out.println("\n");
 
 
 		//Joining Bob to only one group

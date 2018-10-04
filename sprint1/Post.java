@@ -14,18 +14,14 @@ public abstract class Post {
 	}
 
 	public String getText() {
-
 		return text;
-
 	}
 
 	public LocalDateTime getDate() {
 		return date;
-
 	}
 
 	public void setText(String text) {
-
 		this.text = text;
 	}
 
@@ -34,7 +30,6 @@ public abstract class Post {
 	}
 
 	public Group getGroup() {
-
 		return membership.getGroup();
 	}
 
@@ -46,5 +41,3 @@ public abstract class Post {
 		return membership;
 	}
 }
-
-
