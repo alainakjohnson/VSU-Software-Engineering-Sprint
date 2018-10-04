@@ -29,19 +29,19 @@ class Membership{
 	   return dateJoined;
    }
 
-   Member getMember(Member member){
+   Member getMember(){
 	   return member;
    }
 
-   Group getGroup(Group group){
+   Group getGroup(){
 	   return group;
    }
 
-   Question getQuestions(Question questions){
+   List<Question> getQuestions(){
 	   return questions;
    }
 
-   Answer getAnswers(Answer answers){
+   List<Answer> getAnswers(){
 	   return answers;
    }
 

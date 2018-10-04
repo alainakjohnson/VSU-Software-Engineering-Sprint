@@ -1,6 +1,6 @@
 package sprint1;
 
-//import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 
 public abstract class Post {
 
@@ -9,7 +9,6 @@ public abstract class Post {
 	protected Membership membership;
 
 	public Post(String text, LocalDateTime date) {
-
 		this.text = text;
 		this.date = date;
 	}
@@ -21,7 +20,6 @@ public abstract class Post {
 	}
 
 	public LocalDateTime getDate() {
-
 		return date;
 
 	}
@@ -32,23 +30,20 @@ public abstract class Post {
 	}
 
 	public Member getAuthor() {
-
-		return;
+		return membership.getMember();
 	}
 
 	public Group getGroup() {
 
-		return;
+		return membership.getGroup();
 	}
 
 	protected void setMembership(Membership membership) {
-
-
+		this.membership = membership;
 	}
 
 	protected Membership getMembership() {
-
-		return
+		return membership;
 	}
 }
 

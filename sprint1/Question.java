@@ -1,11 +1,13 @@
 package sprint1;
 
 import java.util.*;
+import java.time.LocalDateTime;
 
 class Question extends Post {
 	private String title;
+	private List<Answer> answers = new ArrayList<Answer>();
 
-	public Question(String title, String question, Date date){
+	public Question(String title, String text, LocalDateTime date){
 			super(text, date);
 			this.title = title;
 	}
@@ -19,14 +21,11 @@ class Question extends Post {
 	}
 
 	public void addAnswer(Answer answer){
-		this.Answer = answer;
-		List<Answer> Answers = new List<>;
-
-		Answers.add(this.Answer);
+		answers.add(answer);
 	}
 
 	public List<Answer> getAnswer(){
-		return List<Answer>;
+		return answers;
 	}
 
 	public String toString(){
@@ -34,3 +33,4 @@ class Question extends Post {
 			   getText() +
 			   "Created by user " + getAuthor() + " on " + getDate();
 	}
+}

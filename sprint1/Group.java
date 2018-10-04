@@ -69,4 +69,11 @@ public class Group{
 				+ "\nDescription: " + description
 				+ "\nDate Created: " + dateCreated;
 	}
+
+	// off the record
+
+	//method to add group to membership
+	private void getMembership(Membership memberships){
+		memberships.add(GROUP);
+	}
 }

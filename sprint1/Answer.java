@@ -1,12 +1,13 @@
 package sprint1;
 
-import java.util.*;
+import java.time.LocalDateTime;
 
 class Answer extends Post {
-		public Answer(Question question, String answer, LocalDateTime dateCreated){
-		      answer = text;
-		      //this.question = question;//Need to change this to relate to actual question
-		      dateCreated = date;
+		private Question question;
+
+		public Answer(Question question, String text, LocalDateTime date){
+			super(text, date);
+			this.question = question;
 		   }
 
 
@@ -15,10 +16,8 @@ class Answer extends Post {
 		}
 
 		public String toString(){
-			return getQuestion.toString() +
-				   text +
+			return "Answer for question: " + question.getTitle() + ": " +
+					text +
 				   "Created by user " + getAuthor() + " on " + getDate();
 		}
-
-
 	}
