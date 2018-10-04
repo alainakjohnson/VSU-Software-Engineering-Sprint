@@ -5,10 +5,9 @@ import java.util.*;
 class Question extends Post {
 	private String title;
 
-	public Question(String title, String question, LocalDateTime dateCreated){
-		     this.title = title;
-		     this.question = text;
-		     this.dateCreated = date;
+	public Question(String title, String question, Date date){
+			super(text, date);
+			this.title = title;
 	}
 
 	public String getTitle(){
@@ -31,7 +30,7 @@ class Question extends Post {
 	}
 
 	public String toString(){
-		return getTitle() + 
+		return getTitle() +
 			   getText() +
 			   "Created by user " + getAuthor() + " on " + getDate();
 	}

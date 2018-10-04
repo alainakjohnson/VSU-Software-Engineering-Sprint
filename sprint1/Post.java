@@ -6,6 +6,7 @@ public abstract class Post {
 
 	protected String text;
 	protected LocalDateTime date;
+	protected Membership membership;
 
 	public Post(String text, LocalDateTime date) {
 

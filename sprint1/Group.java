@@ -6,14 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Group{
-	LocalDateTime dateCreated;
-	String title;
-	String description;
-	List<Member> memberList = new ArrayList<Member>();
+	private LocalDateTime dateCreated;
+	private String title;
+	private String description;
+	private List<Question> questions = new ArrayList<Question>();
+	private List<Answer> answers = new ArrayList<Answer>();
+	private List<Membership> memberships = new ArrayList<Membership>();
 
 
 	public Group(String title, String description, LocalDateTime dateCreated) {
-		//final ArrayList<Member> memberList = new ArrayList<Member>();
 		this.title = title;
 		this.description = description;
 		this.dateCreated = dateCreated;
@@ -38,40 +39,29 @@ public class Group{
 	}
 
 	public int getNumMembers() {
-		int numMem = 0;
-		for(int i = 0; i < memberList.size(); i++) {
-			if(memberList.get(i) != null) {
-
-				numMem++;
-			}
-		}
-		return numMem;
+		return memberships.size();
 	}
 
 	public Member getMember(String emailAddress) {
 		Member member = null;
-		for(int i = 0; i < memberList.size(); i++) {
-
-			if(memberList.get(i).getEmailAddress().equals(emailAddress)) {
-
-				member = memberList.get(i);
+		for(int i = 0; i < memberships.size(); i++) {
+			if(memberships.getMember(i).getMember.equals(emailAddress)) {
+				member = memberships.get(i);
 			}
-
 		}
 		return member;
 	}
 
 	public List<Member> getMembers(){
-
-		return memberList;
+		return memberships.getMember();
 	}
 
 	public List<Question> getQuestions(){
-
+		return questions;
 	}
 
 	public List<Answer> getAnswers(){
-
+		return answers;
 	}
 
 	public String toString() {
