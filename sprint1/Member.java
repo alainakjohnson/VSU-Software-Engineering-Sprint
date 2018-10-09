@@ -77,43 +77,69 @@ public class Member {
 
 //   adds the question to the group by this member
 //   records date asked
-//   public void addQuestion(Group group, Question question, LocalDateTime date){
-//		group.add(this.Question);
-//		date = LocalDateTime;
-//   }
+   public void addQuestion(Group group, Question question, LocalDateTime date){
+	  for(Membership m : memberships)
+		  if(m.getGroup().equals(group)){
+			question.setMembership(m);
+			m.getQuestions().add(question);
+		  }
+   }
 
-//   public LocalDateTime getDateJoined(Group group){
-//	   return getDateJoined;
-// ***********Although this can be easily implemented by simply calling getDateJoined helper method on the membership method, we need to go through Groups, not sure how to do that.
-//   }
+   public LocalDateTime getDateJoined(Group group){
+	   joinGroup(group, LocalDateTime.now());
+	   LocalDateTime date = null;
+	   for(Membership m : memberships)
+			  if(m.getGroup().equals(group)){
+				  date = m.getDateJoined();
+			  }
+	   return date;
+  }
 
-//   //adds this member answer to the question, which is in this group.
-//   //records date answered.
-//   public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
-//		group.add(this.Answer);
-//		date = LocalDateTime;
-//   }
+   //adds this member answer to the question, which is in this group.
+   //records date answered.
+   public void addAnswer(Group group, Question question, Answer answer, LocalDateTime date){
+	   question.addAnswer(answer);
+	   for(Membership m : memberships)
+			  if(m.getGroup().equals(group)){
+				  answer.setMembership(m);
+				  m.getAnswers().add(answer);
+			  }
+   }
 
    //returns all questions asked by this member in this group
    public List<Question> getQuestions(Group group){
-
-	   return group.getQuestions();
+	   List<Question> memberQuestions = new ArrayList<Question>();
+	   for(Membership m : memberships){
+		   if(m.getGroup().equals(group)){
+			   memberQuestions.addAll(m.getQuestions());
+		   }
+	   }
+	   return memberQuestions;
 
    }
 
    //returns all answers answered by this member in this group
-   public List<Answer> getAnswer(Group group){
+   public List<Answer> getAnswers(Group group){
+	   List<Answer> memberAnswers = new ArrayList<Answer>();
+	   for (Membership m : memberships){
+		   if(m.getGroup().equals(group)){
+			   memberAnswers.addAll(m.getAnswers());
+		   }
+	   }
+		return memberAnswers;
 
-		return group.getAnswers();
+
+
+
 
    }
 
    public String toString(){
-	    return "\nFirst Name:" + firstName
-			+ "\nLast Name:" + lastName
-	   		+ "\nScreen Name:" + screenName
-	   		+ "\nEmail Address:" + emailAddress
-	   		+ "\nAccount Created:" + dateCreated;
+	    return "\nScreen Name:" + screenName
+	    		+ "\nFirst Name:" + firstName
+				+ "\nLast Name:" + lastName
+				+ "\nEmail Address:" + emailAddress
+				+ "\nAccount Created:" + dateCreated;
    }
 
 }

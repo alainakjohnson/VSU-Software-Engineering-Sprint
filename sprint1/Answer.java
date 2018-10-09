@@ -17,7 +17,7 @@ class Answer extends Post {
 
 		public String toString(){
 			return "Answer for question: " + question.getTitle() + ": " +
-					text +
+					text + "\n" +
 				   "Created by user " + getAuthor() + " on " + getDate();
 		}
 	}

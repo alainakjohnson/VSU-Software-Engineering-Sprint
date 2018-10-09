@@ -5,30 +5,24 @@ import java.time.LocalDateTime;
 public class IntTestDisplay{
 
 	public static void main(String[] args) {
+		LocalDateTime date = LocalDateTime.now();
+
 		//Creating groups and members
 		Group group1 = new Group("Java Beginners", "A group for beginners", LocalDateTime.now());
 		Group group2 = new Group("Java Experts", "A group for the best programmers", LocalDateTime.now());
 		Member member1 = new Member("Bob", "Smith", "bsmith88", "bsmith@yahoo.com", LocalDateTime.now());
 		Member member2 = new Member("Homer", "Simpson", "donuts", "HSimpson@gmail.com", LocalDateTime.now());
-
-		//Storing groups in the membership list of groups
-//		Membership.storeGroup(group1);
-//		Membership.storeGroup(group2);
+		Question question1 = new Question("What does static mean?", "Can someone explain to me what static means?", LocalDateTime.now());
+		Answer answer1 = new Answer(question1, "It means that the object belongs to the class instead of instances of that class", LocalDateTime.now());
 
 		//Display the info for Java Beginners
 		System.out.print("GROUP INFO:\n" + group1.toString());
-		//Display the list of groups
-//		System.out.println("\n\nDISPLAYING THE LIST OF GROUPS:");
-//		Membership.displayGroupList();
-//		System.out.println("\n");
-
 
 		//Joining Bob to only one group
 		member1.joinGroup(group1, LocalDateTime.now());
 		//Joining Homer to both groups
 		member2.joinGroup(group1, LocalDateTime.now());
 		member2.joinGroup(group2, LocalDateTime.now());
-
 
 
 		//Member retrieves information for group by searching for Java Beginners
@@ -51,7 +45,17 @@ public class IntTestDisplay{
 		System.out.println("\nNUMBER OF GROUPS HOMER IS IN: " + member2.getNumGroups());
 		System.out.println("\nGROUPS HOMER IS A MEMBER OF:\n" + member2. getGroups());
 
-
+		//BOB asks a question. Questions
+		//add question
+		member1.addQuestion(member1.getGroup("Java Beginners"), question1, date);
+		//get date joined
+		System.out.print("\n\nMEMBER getDateJoined METHOD FOR BOB SMITH:\n\tDate this member joined this group: " + member1.getDateJoined(group1) + "\n");
+		//add answer
+		member1.addAnswer(member1.getGroup("Java Beginners"), question1, answer1, date);
+		//get questions
+		System.out.print("\n\nMEMBER getQuestions METHOD FOR BOB SMITH:\n\tQuestions asked by this member: " + member1.getQuestions(member1.getGroup("Java Beginners")) + "\n");
+		//get answers
+		System.out.print("\n\nMEMBER getAnswers METHOD FOR BOB SMITH:\n\tAnswers from this member: " + member1.getAnswers(member1.getGroup("Java Beginners")) + "\n");
 
 
 

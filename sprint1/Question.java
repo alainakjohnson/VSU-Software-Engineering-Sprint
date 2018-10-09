@@ -29,8 +29,8 @@ class Question extends Post {
 	}
 
 	public String toString(){
-		return getTitle() +
-			   getText() +
+		return getTitle() + "\n" +
+			   getText() + "\n" +
 			   "Created by user " + getAuthor() + " on " + getDate();
 	}
 }
