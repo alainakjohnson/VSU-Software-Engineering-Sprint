@@ -86,7 +86,6 @@ public class Member {
    }
 
    public LocalDateTime getDateJoined(Group group){
-	   joinGroup(group, LocalDateTime.now());
 	   LocalDateTime date = null;
 	   for(Membership m : memberships)
 			  if(m.getGroup().equals(group)){
