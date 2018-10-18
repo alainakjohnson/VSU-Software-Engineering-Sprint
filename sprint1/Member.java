@@ -48,12 +48,19 @@ public class Member {
 	//helper method comparator for sorting Groups
 	Comparator<Group> groupComparator = new Comparator<Group>() {
 		public int compare(Group a, Group b) {
-			String groupTitle1 = a.getTitle().toUpperCase();
-			String groupTitle2 = b.getTitle().toUpperCase();
-
-			return groupTitle1.compareTo(groupTitle2);
+			return a.getTitle().compareToIgnoreCase(b.getTitle());
 			}};
 	//
+	//helper method comparator for sorting Posts by date
+	Comparator<Post> sortByDate = new Comparator<Post>() {
+		public int compare(Post a, Post b) {
+			LocalDateTime Post1 = a.getDate();
+			LocalDateTime Post2 = b.getDate();
+
+			return Post1.compareTo(Post2);
+			}};
+	//
+
 
 	// joins member to group and records time joined
 	public void joinGroup(Group group, LocalDateTime dateJoined){
@@ -130,6 +137,8 @@ public class Member {
 			   memberQuestions.addAll(m.getQuestions());
 		   }
 	   }
+	   Collections.sort(memberQuestions, sortByDate);
+	   Collections.reverse(memberQuestions);
 	   return memberQuestions;
 
    }
@@ -143,6 +152,9 @@ public class Member {
 			   memberAnswers.addAll(m.getAnswers());
 		   }
 	   }
+
+	   Collections.sort(memberAnswers, sortByDate);
+	   Collections.reverse(memberAnswers);
 		return memberAnswers;
 
    }

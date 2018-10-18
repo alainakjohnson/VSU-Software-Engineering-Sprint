@@ -1,12 +1,12 @@
 package sprint1;
 
 import java.time.LocalDateTime;
-//import java.time.Month;
+import java.time.Month;
 public class IntTestDisplay{
 
 	public static void main(String[] args) {
 		LocalDateTime date = LocalDateTime.now();
-		//LocalDateTime oldDate =LocalDateTime.of(2017,Month.APRIL,17,8,5); //used for testing order
+		LocalDateTime pastDate =LocalDateTime.of(2017,Month.APRIL,17,8,5); //used for testing order
 
 		//Creating groups and members
 		Group javaBeginners = new Group("Java Beginners", "A group for beginners", LocalDateTime.now());
@@ -17,10 +17,12 @@ public class IntTestDisplay{
 		Member aaron = new Member("Aaron", "Aaronson", "bigA", "aaaaaaaa@gmail.com", LocalDateTime.now());
 
 		Question question1 = new Question("What does static mean?", "Can someone explain to me what static means?", LocalDateTime.now());
-		Question question2 = new Question("I have another question", "What is the meaning of life?", LocalDateTime.now());
+		Question question2 = new Question("What is the meaning of life?", "Just what the title says", pastDate);
+		Question question3 = new Question("Hi! I'm new!", "What is Java exactly?", LocalDateTime.now());
 
 		Answer answer1 = new Answer(question1, "It means that the object belongs to the class instead of instances of that class", LocalDateTime.now());
-		Answer answer2 = new Answer(question2, "No one knows.", LocalDateTime.now());
+		Answer answer2 = new Answer(question2, "No one knows.", pastDate);
+		Answer answer3 = new Answer(question3, "I'm Homer.", LocalDateTime.now());
 
 		//ACTIONS:
 
@@ -47,6 +49,10 @@ public class IntTestDisplay{
 		//HOMER asks another question, and Bob answers it
 		homer.addQuestion(homer.getGroup("Java Beginners"), question2, date);
 		bob.addAnswer(bob.getGroup("Java Beginners"), question2, answer2, date);
+
+		//AARON asks a question and Homer answers it
+		aaron.addQuestion(aaron.getGroup("Java Beginners"), question3, date);
+		homer.addAnswer(homer.getGroup("Java Beginners"), question3, answer3, date);
 
 
 		//MEMBER METHODS:
@@ -87,12 +93,14 @@ public class IntTestDisplay{
 
 		//Retrieves all questions Homer has asked in Java Beginners:
 		//sorted from most to least recent.
+		//Should sort: question 1 (What does static mean?) -> question 2 (What is the meaning of life?)
 		System.out.println("\n|==========getQuestions():==========|");
 		System.out.println(homer.getQuestions(homer.getGroup("Java Beginners")));
 		System.out.println("\n|================================|");
 
 		//Retrieves all answers Bob has answered in Java Beginners:
 		//sorted from most to least recent.
+		//Should sort: Answer 1 (It means the object belongs to the class...) -> Answer 2 (No one knows)
 		System.out.println("\n|==========getAnswers():==========|");
 		System.out.println(bob.getAnswers(bob.getGroup("Java Beginners")));
 		System.out.println("\n|================================|");
@@ -131,14 +139,16 @@ public class IntTestDisplay{
 		System.out.println(javaBeginners.getMembers());
 		System.out.println("\n|=================================|");
 
-		//Retrieving all questions for Java Beginners ** DOES NOT WORK **
+		//Retrieving all questions for Java Beginners
 		//sorted from most to least recent
+		//Should sort: Question 3 (Hi! I'm new!) -> Question 1 (What does static mean?) -> Question 2 (What is the meaning of life?)
 		System.out.println("\n|==========getQuestions():==========|");
 		System.out.println(javaBeginners.getQuestions());
 		System.out.println("\n|===================================|");
 
-		//Retrieving all answers for Java Beginners ** DOES NOT WORK **
+		//Retrieving all answers for Java Beginners
 		//sorted from most to least recent
+		//Should sort: Answer 3 ("I'm Homer) -> Answer 1 (It means the object belongs to the class...) -> Answer 2 (No one knows)
 		System.out.println("\n|==========getAnswers():==========|");
 		System.out.println(javaBeginners.getAnswers());
 		System.out.println("\n|=================================|");
@@ -147,7 +157,7 @@ public class IntTestDisplay{
 
 		System.out.println("+===================POSTS===================+");
 
-		//Basic Getters using question1 and answer2
+		//Basic Getters using question1 and answer1
 		System.out.println("\n|==========Basic Getters:==========|");
 		System.out.println("getTitle(): " + question1.getTitle());
 		System.out.println("getText(): " + question1.getText());
@@ -164,31 +174,31 @@ public class IntTestDisplay{
 
 		System.out.println("\n************************************************");
 
-		//toStrings:
-		//Display the info for the Groups:
-		System.out.println("\n|==========GROUP INFO:==========|");
-		System.out.println(javaBeginners.toString());
-		System.out.println(javaExperts.toString());
-		System.out.println("\n|===============================|");
-
-		//Display the info for the Members:
-		System.out.println("\n|==========MEMBER INFO:==========|");
-		System.out.println(bob.toString());
-		System.out.println(homer.toString());
-		System.out.println(aaron.toString());
-		System.out.println(bart.toString());
-		System.out.println("\n|===============================|");
-
-		//Display the info for Question 1:
-		System.out.println("\n|==========QUESTION 1:==========|");
-		System.out.println(question1.toString());
-		System.out.println("\n|===============================|");
-
-		//Display the info for Answer 1:
-		System.out.println("\n|==========Answer 1:==========|");
-		System.out.println(answer1.toString());
-		System.out.println("\n|===============================|");
-
+//		//toStrings:
+//		//Display the info for the Groups:
+//		System.out.println("\n|==========GROUP INFO:==========|");
+//		System.out.println(javaBeginners.toString());
+//		System.out.println(javaExperts.toString());
+//		System.out.println("\n|===============================|");
+//
+//		//Display the info for the Members:
+//		System.out.println("\n|==========MEMBER INFO:==========|");
+//		System.out.println(bob.toString());
+//		System.out.println(homer.toString());
+//		System.out.println(aaron.toString());
+//		System.out.println(bart.toString());
+//		System.out.println("\n|===============================|");
+//
+//		//Display the info for Question 1:
+//		System.out.println("\n|==========QUESTION 1:==========|");
+//		System.out.println(question1.toString());
+//		System.out.println("\n|===============================|");
+//
+//		//Display the info for Answer 1:
+//		System.out.println("\n|==========Answer 1:==========|");
+//		System.out.println(answer1.toString());
+//		System.out.println("\n|===============================|");
+//
 	}
 
 

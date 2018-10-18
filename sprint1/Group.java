@@ -10,8 +10,6 @@ public class Group{
 	private LocalDateTime dateCreated;
 	private String title;
 	private String description;
-//	private List<Question> questions;
-//	private List<Answer> answers;
 	private List<Membership> memberships = new ArrayList<Membership>();
 
 	public Group(String title, String description, LocalDateTime dateCreated) {
@@ -41,10 +39,19 @@ public class Group{
 	//helper method comparator for sorting MEMBERS
 	Comparator<Member> memberComparator = new Comparator<Member>() {
 		public int compare(Member a, Member b) {
-			String memberName1 = a.getLastName().toUpperCase();
-			String memberName2 = b.getLastName().toUpperCase();
+			int mem = a.getLastName().compareToIgnoreCase(b.getLastName());
+			if (mem != 0)
+				return mem;
+			return a.getFirstName().compareToIgnoreCase(b.getFirstName());
+			}};
+	//
+	//helper method comparator for sorting Groups
+	Comparator<Post> sortByDate = new Comparator<Post>() {
+		public int compare(Post a, Post b) {
+			LocalDateTime Post1 = a.getDate();
+			LocalDateTime Post2 = b.getDate();
 
-			return memberName1.compareTo(memberName2);
+			return Post1.compareTo(Post2);
 			}};
 	//
 
@@ -79,6 +86,8 @@ public class Group{
 		for(Membership m : memberships) {
 			questions.addAll(m.getQuestions());
 		}
+		Collections.sort(questions, sortByDate);
+		Collections.reverse(questions);
 		return questions;
 	}
 
@@ -88,6 +97,9 @@ public class Group{
 		for(Membership m : memberships) {
 			answers.addAll(m.getAnswers());
 		}
+
+		Collections.sort(answers, sortByDate);
+		 Collections.reverse(answers);
 		return answers;
 	}
 
