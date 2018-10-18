@@ -2,6 +2,8 @@ package sprint1;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Member {
@@ -42,6 +44,17 @@ public class Member {
 		return screenName;
 	}
 
+	// HELPER METHODS
+	//helper method comparator for sorting Groups
+	Comparator<Group> groupComparator = new Comparator<Group>() {
+		public int compare(Group a, Group b) {
+			String groupTitle1 = a.getTitle().toUpperCase();
+			String groupTitle2 = b.getTitle().toUpperCase();
+
+			return groupTitle1.compareTo(groupTitle2);
+			}};
+	//
+
 	// joins member to group and records time joined
 	public void joinGroup(Group group, LocalDateTime dateJoined){
 		dateJoined = LocalDateTime.now();
@@ -73,6 +86,8 @@ public class Member {
 	   		for(Membership m : memberships) {
 	   			tempGroupList.add(m.getGroup());
 	   			}
+
+	   Collections.sort(tempGroupList, groupComparator);
 	   return tempGroupList;
    }
 
@@ -133,11 +148,11 @@ public class Member {
    }
 
    public String toString(){
-	    return "\nScreen Name:" + screenName
-	    		+ "\nFirst Name:" + firstName
-				+ "\nLast Name:" + lastName
-				+ "\nEmail Address:" + emailAddress
-				+ "\nAccount Created:" + dateCreated;
+	    return "\nScreen Name: " + screenName
+	    		+ "\nFirst Name: " + firstName
+				+ "\nLast Name: " + lastName
+				+ "\nEmail Address: " + emailAddress
+				+ "\nAccount Created: " + dateCreated;
    }
 
 }

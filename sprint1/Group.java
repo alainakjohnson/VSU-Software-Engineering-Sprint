@@ -32,10 +32,20 @@ public class Group{
 		return description;
 	}
 
+	// helper methods
 	//helper to add group to membership
 	void addMembership (Membership membership){
 		memberships.add(membership);
 	}
+	//
+	//helper method comparator for sorting MEMBERS
+	Comparator<Member> memberComparator = new Comparator<Member>() {
+		public int compare(Member a, Member b) {
+			String memberName1 = a.getLastName().toUpperCase();
+			String memberName2 = b.getLastName().toUpperCase();
+
+			return memberName1.compareTo(memberName2);
+			}};
 	//
 
 	public int getNumMembers() {
@@ -62,17 +72,6 @@ public class Group{
 		Collections.sort(tempMemberList, memberComparator);
 		return tempMemberList;
 	}
-
-	//comparator for sorting MEMBERS
-	 Comparator<Member> memberComparator = new Comparator<Member>() {
-
-			public int compare(Member a, Member b) {
-			   String memberName1 = a.getLastName().toUpperCase();
-			   String memberName2 = b.getLastName().toUpperCase();
-
-			   //ascending order
-			   return memberName1.compareTo(memberName2);
-		    }};
 
 	// SORT ON DATE MOST RECENT TO LEAST
 	public List<Question> getQuestions(){
