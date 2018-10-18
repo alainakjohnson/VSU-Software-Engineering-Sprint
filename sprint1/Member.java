@@ -67,6 +67,7 @@ public class Member {
     }
 
    //returns a list of all groups the member is a member of.
+    // SORT LIST ON TITLE
    public List<Group> getGroups(){
 	   List<Group> tempGroupList = new ArrayList<Group>();
 	   		for(Membership m : memberships) {
@@ -106,6 +107,7 @@ public class Member {
    }
 
    //returns all questions asked by this member in this group
+   // SORT ON DATE MOST RECENT TO LEAST
    public List<Question> getQuestions(Group group){
 	   List<Question> memberQuestions = new ArrayList<Question>();
 	   for(Membership m : memberships){
@@ -118,6 +120,7 @@ public class Member {
    }
 
    //returns all answers answered by this member in this group
+// SORT ON DATE MOST RECENT TO LEAST
    public List<Answer> getAnswers(Group group){
 	   List<Answer> memberAnswers = new ArrayList<Answer>();
 	   for (Membership m : memberships){
@@ -126,10 +129,6 @@ public class Member {
 		   }
 	   }
 		return memberAnswers;
-
-
-
-
 
    }
 
