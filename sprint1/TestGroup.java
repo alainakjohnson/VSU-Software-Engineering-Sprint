@@ -22,7 +22,7 @@ public class TestGroup {
 		//number of members
 		System.out.print("\nDISPLAYING getNumMembers FOR JAVA BEGINNERS GROUP:\n\n\tNumber of Members: " + group1.getNumMembers() + "\n");
 		//member
-		System.out.print("\nDISPLAYING getMember FOR JAVA BEGINNERS GROUP:\n\n\tMember associated with HSimpson@gmail.com: " + group1.getMember("HSimpson@gmail.com") + "\n");
+		System.out.print("\nDISPLAYING getMember FOR JAVA BEGINNERS GROUP:\n\n\tMember associated with HSimpson@gmail.com: " + group1.getMember("bsmith@yahoo.com") + "\n");
 		//get members
 		System.out.print("\nDISPLAYING getMembers FOR JAVA BEGINNERS GROUP:\n\n\tMembers: " + group1.getMembers() + "\n");
 		//get questions

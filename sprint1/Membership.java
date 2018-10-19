@@ -42,5 +42,4 @@ class Membership{
    List<Answer> getAnswers(){
 	   return answers;
    }
-
 }
