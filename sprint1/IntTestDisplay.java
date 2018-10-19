@@ -1,60 +1,204 @@
 package sprint1;
 
 import java.time.LocalDateTime;
-
+import java.time.Month;
 public class IntTestDisplay{
 
 	public static void main(String[] args) {
+		LocalDateTime date = LocalDateTime.now();
+		LocalDateTime pastDate =LocalDateTime.of(2017,Month.APRIL,17,8,5); //used for testing order
+
 		//Creating groups and members
-		Group group1 = new Group("Java Beginners", "A group for beginners", LocalDateTime.now());
-		Group group2 = new Group("Java Experts", "A group for the best programmers", LocalDateTime.now());
-		Member member1 = new Member("Bob", "Smith", "bsmith88", "bsmith@yahoo.com", LocalDateTime.now());
-		Member member2 = new Member("Homer", "Simpson", "donuts", "HSimpson@gmail.com", LocalDateTime.now());
+		Group javaBeginners = new Group("Java Beginners", "A group for beginners", LocalDateTime.now());
+		Group javaExperts = new Group("Java Experts", "A group for the best programmers", LocalDateTime.now());
+		Member bob = new Member("Bob", "Smith", "bsmith88", "bsmith@yahoo.com", LocalDateTime.now());
+		Member homer = new Member("Homer", "Simpson", "donuts", "HSimpson@gmail.com", LocalDateTime.now());
+		Member bart = new Member("Bart", "Simpson", "bartman", "eatmyshorts@gmail.com", LocalDateTime.now());
+		Member aaron = new Member("Aaron", "Aaronson", "bigA", "aaaaaaaa@gmail.com", LocalDateTime.now());
 
-		//Storing groups in the membership list of groups
-//		Membership.storeGroup(group1);
-//		Membership.storeGroup(group2);
+		Question question1 = new Question("What does static mean?", "Can someone explain to me what static means?", LocalDateTime.now());
+		Question question2 = new Question("What is the meaning of life?", "Just what the title says", pastDate);
+		Question question3 = new Question("Hi! I'm new!", "What is Java exactly?", LocalDateTime.now());
 
-		//Display the info for Java Beginners
-		System.out.print("GROUP INFO:\n" + group1.toString());
-		//Display the list of groups
-//		System.out.println("\n\nDISPLAYING THE LIST OF GROUPS:");
-//		Membership.displayGroupList();
-//		System.out.println("\n");
+		Answer answer1 = new Answer(question1, "It means that the object belongs to the class instead of instances of that class", LocalDateTime.now());
+		Answer answer2 = new Answer(question2, "No one knows.", pastDate);
+		Answer answer3 = new Answer(question3, "I'm Homer.", LocalDateTime.now());
+
+		//ACTIONS:
+
+		//Joining Bob to both groups
+
+		bob.joinGroup(javaExperts, LocalDateTime.now());
+		bob.joinGroup(javaBeginners, LocalDateTime.now());
+
+		//Joining Homer to only one group
+		homer.joinGroup(javaBeginners, LocalDateTime.now());
+
+		//Joining Aaron to only one group for sorting reasons
+		aaron.joinGroup(javaBeginners, LocalDateTime.now());
+
+		//Joining Bart to only one group for sorting reasons
+		bart.joinGroup(javaBeginners, LocalDateTime.now());
+
+		//HOMER asks a question
+		homer.addQuestion(homer.getGroup("Java Beginners"), question1, date);
+
+		//BOB answers the question
+		bob.addAnswer(bob.getGroup("Java Beginners"), question1, answer1, date);
+
+		//HOMER asks another question, and Bob answers it
+		homer.addQuestion(homer.getGroup("Java Beginners"), question2, date);
+		bob.addAnswer(bob.getGroup("Java Beginners"), question2, answer2, date);
+
+		//AARON asks a question and Homer answers it
+		aaron.addQuestion(aaron.getGroup("Java Beginners"), question3, date);
+		homer.addAnswer(homer.getGroup("Java Beginners"), question3, answer3, date);
 
 
-		//Joining Bob to only one group
-		member1.joinGroup(group1, LocalDateTime.now());
-		//Joining Homer to both groups
-		member2.joinGroup(group1, LocalDateTime.now());
-		member2.joinGroup(group2, LocalDateTime.now());
+		//MEMBER METHODS:
+		System.out.println("+===================MEMBER METHODS===================+");
 
+		//Basic getters (using Bob as Example)
+		System.out.println("\n|==========Basic Getters:==========|");
+		System.out.println("getEmailAddress(): " + bob.getEmailAddress());
+		System.out.println("getDateCreated(): " + bob.getDateCreated());
+		System.out.println("getFirstName(): " + bob.getFirstName());
+		System.out.println("getLastName(): " + bob.getLastName());
+		System.out.println("getScreenName(): " + bob.getScreenName());
+		System.out.println("\n|==================================|");
 
+		//Retrieves information for Java Beginners if Bob is a member.
+		//Should return Null if person is not a member.
+		System.out.println("\n|==========getGroup():==========|");
+		System.out.println(bob.getGroup("Java Beginners"));
+		System.out.println(bart.getGroup("Java Experts"));
+		System.out.println("\n|===============================|");
 
-		//Member retrieves information for group by searching for Java Beginners
-		System.out.println("\n\nUSING MEMBER getGroup METHOD TO RETRIEVE JAVA BEGINNERS GROUP INFO:\n" + member1.getGroup("Java Beginners"));
+		//Retrieves the number of Groups Bob is a member of.
+		System.out.println("\n|==========getNumGroups():==========|");
+		System.out.println(bob.getNumGroups());
+		System.out.println("\n|===================================|");
+
+		//Retrieves the groups Bob is a member of.
+		//Sorted by Title.
+		//Java Beginners -> Java Experts
+		System.out.println("\n|==========getGroups():==========|");
+		System.out.println(bob.getGroups());
+		System.out.println("\n|================================|");
+
+		//Retrieves the date Bob joined Java Beginners.
+		System.out.println("\n|==========getDateJoined():==========|");
+		System.out.println(bob.getDateJoined(javaBeginners));
+		System.out.println("\n|================================|");
+
+		//Retrieves all questions Homer has asked in Java Beginners:
+		//sorted from most to least recent.
+		//Should sort: question 1 (What does static mean?) -> question 2 (What is the meaning of life?)
+		System.out.println("\n|==========getQuestions():==========|");
+		System.out.println(homer.getQuestions(homer.getGroup("Java Beginners")));
+		System.out.println("\n|================================|");
+
+		//Retrieves all answers Bob has answered in Java Beginners:
+		//sorted from most to least recent.
+		//Should sort: Answer 1 (It means the object belongs to the class...) -> Answer 2 (No one knows)
+		System.out.println("\n|==========getAnswers():==========|");
+		System.out.println(bob.getAnswers(bob.getGroup("Java Beginners")));
+		System.out.println("\n|================================|");
+
+		System.out.println("\n************************************************");
+
+		System.out.println("+===================GROUP METHODS===================+");
+		//GROUP METHODS:
+
+		//Basic getters (using Java Beginners)
+		System.out.println("\n|==========Basic Getters:==========|");
+		System.out.println("getDateCreated(): " + javaBeginners.getDateCreated());
+		System.out.println("getTitle(): " + javaBeginners.getTitle());
+		System.out.println("getDescription(): " + javaBeginners.getDescription());
+		System.out.println("\n|==================================|");
 
 		//Retrieving member Bob Smith from Java Beginners group
-		System.out.println("\n\nUSING GROUP getMember METHOD TO RETRIEVE BOB SMITH USING HIS EMAIL:\n" + group1.getMember("bsmith@yahoo.com"));
+		System.out.println("\n|==========getMember():==========|");
+		System.out.println(javaBeginners.getMember("bsmith@yahoo.com"));
+		System.out.println("\n|================================|");
 
-		//Retrieving the number of members in Java Beginners group and displaying all members
-		System.out.println("\nNUMBER OF MEMBERS IN JAVA BEGINNERS: " + group1.getNumMembers());
-		System.out.println("\n\nGETTING THE LIST OF MEMBERS IN JAVA BEGINNERS:\n" + group1.getMembers());
+		//Retrieving number of members in Java Beginners
+		System.out.println("\n|==========getNumMembers():==========|");
+		System.out.println(javaBeginners.getNumMembers());
+		System.out.println("\n|====================================|");
 
-		//Displaying search for Homer Simpson
-		System.out.println("\n\nRETRIEVING MEMBER HOMER SIMPSON FROM JAVA EXPERTS GROUP USING HIS EMAIL:\n" + group2.getMember("HSimpson@gmail.com"));
+		//Retrieving member by email address.
+		System.out.println("\n|==========getMember():==========|");
+		System.out.println(javaBeginners.getMember("HSimpson@gmail.com"));
+		System.out.println("\n|================================|");
 
-		//Displaying all members in the Java Experts group
-		System.out.println("\n\nGETTING THE LIST OF MEMBERS IN JAVA EXPERTS:\n" + group2.getMembers());
+		//Retrieving members in Java Beginners in alphabetical order,
+		//sorted by last name, then first name.
+		//the order this should appear in: Aaron -> Bart -> Homer -> Bob
+		System.out.println("\n|==========getMembers():==========|");
+		System.out.println(javaBeginners.getMembers());
+		System.out.println("\n|=================================|");
 
-		//Displaying how many groups Homer Simpson is in
-		System.out.println("\nNUMBER OF GROUPS HOMER IS IN: " + member2.getNumGroups());
-		System.out.println("\nGROUPS HOMER IS A MEMBER OF:\n" + member2. getGroups());
+		//Retrieving all questions for Java Beginners
+		//sorted from most to least recent
+		//Should sort: Question 3 (Hi! I'm new!) -> Question 1 (What does static mean?) -> Question 2 (What is the meaning of life?)
+		System.out.println("\n|==========getQuestions():==========|");
+		System.out.println(javaBeginners.getQuestions());
+		System.out.println("\n|===================================|");
 
+		//Retrieving all answers for Java Beginners
+		//sorted from most to least recent
+		//Should sort: Answer 3 ("I'm Homer) -> Answer 1 (It means the object belongs to the class...) -> Answer 2 (No one knows)
+		System.out.println("\n|==========getAnswers():==========|");
+		System.out.println(javaBeginners.getAnswers());
+		System.out.println("\n|=================================|");
 
+		System.out.println("\n************************************************");
 
+		System.out.println("+===================POSTS===================+");
 
+		//Basic Getters using question1 and answer1
+		System.out.println("\n|==========Basic Getters:==========|");
+		System.out.println("getTitle(): " + question1.getTitle());
+		System.out.println("getText(): " + question1.getText());
+		System.out.println("getDate(): " + question1.getDate());
+		System.out.println("getAuthor(): " + question1.getAuthor());
+		System.out.println("getGroup(): " + question1.getGroup());
+		System.out.println("getAnswer(): " + question1.getAnswer());
+		System.out.println("-------------------------------------");
+		System.out.println("getQuestion(): " + answer1.getQuestion());
+		System.out.println("-------------------------------------");
+		System.out.println("getMembership() for question1: \n" + question1.getMembership());
+		System.out.println("getMembership() for answer1: \n" + answer1.getMembership());
+		System.out.println("\n|=================================|");
 
+		System.out.println("\n************************************************");
+
+//		//toStrings:
+//		//Display the info for the Groups:
+//		System.out.println("\n|==========GROUP INFO:==========|");
+//		System.out.println(javaBeginners.toString());
+//		System.out.println(javaExperts.toString());
+//		System.out.println("\n|===============================|");
+//
+//		//Display the info for the Members:
+//		System.out.println("\n|==========MEMBER INFO:==========|");
+//		System.out.println(bob.toString());
+//		System.out.println(homer.toString());
+//		System.out.println(aaron.toString());
+//		System.out.println(bart.toString());
+//		System.out.println("\n|===============================|");
+//
+//		//Display the info for Question 1:
+//		System.out.println("\n|==========QUESTION 1:==========|");
+//		System.out.println(question1.toString());
+//		System.out.println("\n|===============================|");
+//
+//		//Display the info for Answer 1:
+//		System.out.println("\n|==========Answer 1:==========|");
+//		System.out.println(answer1.toString());
+//		System.out.println("\n|===============================|");
+//
 	}
 
 
