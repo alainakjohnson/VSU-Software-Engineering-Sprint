@@ -1,4 +1,4 @@
-package sprint1;
+package sprint2;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class Member {
 
 	// HELPER METHODS
 	//helper method comparator for sorting Groups
-	Comparator<Group> groupComparator = new Comparator<Group>() {
+	Comparator<Group> sortByTitle = new Comparator<Group>() {
 		public int compare(Group a, Group b) {
 			return a.getTitle().compareToIgnoreCase(b.getTitle());
 			}};
@@ -57,9 +57,18 @@ public class Member {
 			LocalDateTime Post1 = a.getDate();
 			LocalDateTime Post2 = b.getDate();
 
-			return Post1.compareTo(Post2);
+			return Post2.compareTo(Post1);
 			}};
 	//
+	//helper method comparator for sorting activity IN GROUP
+	Comparator<Group> sortByActive = new Comparator<Group>() {
+		public int compare(Group a, Group b) {
+			int Group1 = getQuestions(a).size()+getAnswers(a).size();
+			int Group2 = getQuestions(b).size()+getAnswers(b).size();
+
+			return Group2 - Group1;
+			}};
+			//
 
 
 	// joins member to group and records time joined
@@ -94,8 +103,22 @@ public class Member {
 	   			tempGroupList.add(m.getGroup());
 	   			}
 
-	   Collections.sort(tempGroupList, groupComparator);
+	   Collections.sort(tempGroupList, sortByTitle);
 	   return tempGroupList;
+   }
+
+   //returns user's n most active groups, sorted on title
+   public List<Group> getGroups(int n){
+	   List<Group> mostActiveGroups = new ArrayList<Group>();
+	   mostActiveGroups = getGroups();
+	   Collections.sort(mostActiveGroups, sortByActive);
+	   if(n >= mostActiveGroups.size()){
+		   Collections.sort(mostActiveGroups, sortByTitle);
+		   return mostActiveGroups;
+		   }
+	   mostActiveGroups = mostActiveGroups.subList(0, n);
+	   Collections.sort(mostActiveGroups, sortByTitle);
+	   return mostActiveGroups;
    }
 
 //   adds the question to the group by this member
@@ -138,13 +161,22 @@ public class Member {
 		   }
 	   }
 	   Collections.sort(memberQuestions, sortByDate);
-	   Collections.reverse(memberQuestions);
 	   return memberQuestions;
-
    }
 
+   //get the n most recent answers from above
+   public List<Question> getQuestions(Group group, int n){
+	   List<Question> recentQuestions = new ArrayList<Question>();
+	   if(n >= getQuestions(group).size()){
+		   return getQuestions(group);
+		   }
+	   recentQuestions = getQuestions(group).subList(0, n);
+	   return recentQuestions;
+   }
+
+
    //returns all answers answered by this member in this group
-// SORT ON DATE MOST RECENT TO LEAST
+   // SORT ON DATE MOST RECENT TO LEAST
    public List<Answer> getAnswers(Group group){
 	   List<Answer> memberAnswers = new ArrayList<Answer>();
 	   for (Membership m : memberships){
@@ -154,10 +186,20 @@ public class Member {
 	   }
 
 	   Collections.sort(memberAnswers, sortByDate);
-	   Collections.reverse(memberAnswers);
-		return memberAnswers;
-
+	   return memberAnswers;
    }
+
+   //get the n most recent answers from above
+   public List<Answer> getAnswers(Group group, int n){
+	   List<Answer> recentAnswers = new ArrayList<Answer>();
+	   if(n >= getAnswers(group).size()){
+		   return getAnswers(group);
+		   }
+	   recentAnswers = getAnswers(group).subList(0, n);
+	   return recentAnswers;
+   }
+
+
 
    public String toString(){
 	    return "\nScreen Name: " + screenName
