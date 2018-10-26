@@ -1,4 +1,4 @@
-package sprint1;
+package sprint2;
 
 import java.time.LocalDateTime;
 
@@ -17,7 +17,7 @@ class Answer extends Post {
 
 		public String toString(){
 			return "Answer for question: " + question.getTitle() + ": " +
-					text +
-				   "Created by user " + getAuthor() + " on " + getDate();
+					text + "\n" +
+				   "Created by user: " + getAuthor() + " on " + getDate() + "\n";
 		}
 	}

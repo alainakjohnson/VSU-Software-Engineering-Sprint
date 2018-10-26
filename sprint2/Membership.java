@@ -1,4 +1,4 @@
-package sprint1;
+package sprint2;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -42,5 +42,4 @@ class Membership{
    List<Answer> getAnswers(){
 	   return answers;
    }
-
 }
