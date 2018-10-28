@@ -42,6 +42,9 @@ public abstract class Post {
 	protected Membership getMembership() {
 		return membership;
 	}
+<<<<<<< HEAD:sprint2/src/sprint2/Post.java
+}
+=======
 	
 	//// Added for Requirement 6 ////
 	
@@ -67,3 +70,4 @@ public abstract class Post {
 	}
 	
 }
+>>>>>>> 4bc72b8da51e1b0465e6ac4c64df8093ba18ec7a:sprint2/Post.java
