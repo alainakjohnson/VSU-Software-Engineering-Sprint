@@ -2,8 +2,8 @@ package sprint2;
 
 import java.time.LocalDateTime;
 import java.time.Month;
-public class IntTestDisplay{
 
+public class IntMemberGroupMembership {
 	public static void main(String[] args) {
 		LocalDateTime date = LocalDateTime.now();
 		LocalDateTime pastDate =LocalDateTime.of(2017,Month.APRIL,17,8,5); //used for testing order
@@ -46,22 +46,43 @@ public class IntTestDisplay{
 		bart.joinGroup(javaBeginners, LocalDateTime.now());
 
 		//HOMER asks a question
-		homer.addQuestion(homer.getGroup("Java Beginners"), question1, date);
+		homer.addQuestion(javaBeginners, question1, date);
 
 		//BOB answers the question
-		bob.addAnswer(bob.getGroup("Java Beginners"), question1, answer1, date);
+		bob.addAnswer(javaBeginners, question1, answer1, date);
 
 		//HOMER asks another question, and Bob answers it
-		homer.addQuestion(homer.getGroup("Java Beginners"), question2, date);
-		bob.addAnswer(bob.getGroup("Java Beginners"), question2, answer2, date);
+		homer.addQuestion(javaBeginners, question2, date);
+		bob.addAnswer(javaBeginners, question2, answer2, date);
 
 		//AARON asks a question and Homer answers it
-		aaron.addQuestion(aaron.getGroup("Java Beginners"), question3, date);
-		homer.addAnswer(homer.getGroup("Java Beginners"), question3, answer3, date);
+		aaron.addQuestion(javaBeginners, question3, date);
+		homer.addAnswer(javaBeginners, question3, answer3, date);
 
 		//Some Questions from BOB in Java Gods
-		bob.addQuestion(bob.getGroup("Java Gods"), question4, date);
-		bob.addQuestion(bob.getGroup("Java Gods"), question4, date);
+		bob.addQuestion(javaGods, question4, date);
+		bob.addQuestion(javaGods, question4, date);
+		
+		//Adding and removing votes from Question 1
+		bob.setVote(1, question1);
+		aaron.setVote(1, question1);
+		bart.setVote(1, question1);
+		// 3 points total for this question to Homer
+		
+		//Adding and removing votes from Question 2
+		bob.setVote(0, question2);
+		aaron.setVote(1, question2);
+		bart.setVote(0, question2);
+		// -1 points total for this question to Homer
+		
+		//Adding and removing votes from Question 3
+		bob.setVote(1, question3);
+		homer.setVote(1, question3);
+		// 2 points total for this question to Aaron
+		
+		//Adding and removing votes from Answer 1
+		aaron.setVote(1, answer1);
+		// 1 point total for this question to Bob
 
 
 		//MEMBER METHODS:
@@ -129,6 +150,18 @@ public class IntTestDisplay{
 		System.out.println("\n|==========getAnswers(Group, int):==========|");
 		System.out.println(bob.getAnswers(javaBeginners,3));
 		System.out.println("\n|================================|");
+		
+		//returns total points for member
+		//Homer should have 2 points
+		//Bob should have 1 point
+		//Aaron should have 2 points
+		//Bart should have 0 points
+		System.out.println("\n|==========getPoints():==========|");
+		System.out.println("Homer's Points: " + homer.getPoints());
+		System.out.println("Bob's Points: " + bob.getPoints());
+		System.out.println("Aaron's Points: " + aaron.getPoints());
+		System.out.println("Bart's Points: " + bart.getPoints());
+		System.out.println("\n|================================|");		
 
 		System.out.println("\n************************************************");
 
@@ -195,52 +228,5 @@ public class IntTestDisplay{
 		System.out.println("\n|=================================|");
 
 		System.out.println("\n************************************************");
-
-		System.out.println("+===================POSTS===================+");
-
-		//Basic Getters using question1 and answer1
-		System.out.println("\n|==========Basic Getters:==========|");
-		System.out.println("getTitle(): " + question1.getTitle());
-		System.out.println("getText(): " + question1.getText());
-		System.out.println("getDate(): " + question1.getDate());
-		System.out.println("getAuthor(): " + question1.getAuthor());
-		System.out.println("getGroup(): " + question1.getGroup());
-		System.out.println("getAnswer(): " + question1.getAnswer());
-		System.out.println("-------------------------------------");
-		System.out.println("getQuestion(): " + answer1.getQuestion());
-		System.out.println("-------------------------------------");
-		System.out.println("getMembership() for question1: \n" + question1.getMembership());
-		System.out.println("getMembership() for answer1: \n" + answer1.getMembership());
-		System.out.println("\n|=================================|");
-
-		System.out.println("\n************************************************");
-
-//		//toStrings:
-//		//Display the info for the Groups:
-//		System.out.println("\n|==========GROUP INFO:==========|");
-//		System.out.println(javaBeginners.toString());
-//		System.out.println(javaExperts.toString());
-//		System.out.println("\n|===============================|");
-//
-//		//Display the info for the Members:
-//		System.out.println("\n|==========MEMBER INFO:==========|");
-//		System.out.println(bob.toString());
-//		System.out.println(homer.toString());
-//		System.out.println(aaron.toString());
-//		System.out.println(bart.toString());
-//		System.out.println("\n|===============================|");
-//
-//		//Display the info for Question 1:
-//		System.out.println("\n|==========QUESTION 1:==========|");
-//		System.out.println(question1.toString());
-//		System.out.println("\n|===============================|");
-//
-//		//Display the info for Answer 1:
-//		System.out.println("\n|==========Answer 1:==========|");
-//		System.out.println(answer1.toString());
-//		System.out.println("\n|===============================|");
-//
 	}
-
-
 }

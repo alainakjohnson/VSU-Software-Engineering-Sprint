@@ -6,12 +6,13 @@ import java.util.List;
 
 class Membership{
 
-   //private int points;
+   private int points;
    private LocalDateTime dateJoined;
    private Member member;
    private Group group;
    private List<Question> questions = new ArrayList<Question>();
    private List<Answer> answers = new ArrayList<Answer>();
+   private List<Comment> comments = new ArrayList<Comment>();
 
    public Membership (Member member, Group group, LocalDateTime dateJoined){
    		this.member = member;
@@ -42,4 +43,20 @@ class Membership{
    List<Answer> getAnswers(){
 	   return answers;
    }
+   
+   //// Added for Requirement 6 ////
+   
+   int getPoints(){
+	   return points;
+   }
+   
+   void setPoints(int newPoints){
+	   points += newPoints;
+   }
+   
+   List<Comment> getComments(){
+	   return comments;
+   }
+   
+   //
 }
