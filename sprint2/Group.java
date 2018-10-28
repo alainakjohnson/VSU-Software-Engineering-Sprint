@@ -30,13 +30,15 @@ public class Group{
 		return description;
 	}
 
-	// helper methods
-	//helper to add group to membership
+	//// HELPER METHODS ////
+	
+	// add group to membership
 	void addMembership (Membership membership){
 		memberships.add(membership);
 	}
 	//
-	//helper method comparator for sorting MEMBERS
+	
+	// comparator for sorting MEMBERS
 	Comparator<Member> sortByName = new Comparator<Member>() {
 		public int compare(Member a, Member b) {
 			int mem = a.getLastName().compareToIgnoreCase(b.getLastName());
@@ -45,7 +47,8 @@ public class Group{
 			return a.getFirstName().compareToIgnoreCase(b.getFirstName());
 			}};
 	//
-	//helper method comparator for sorting Groups
+			
+	// comparator for sorting Groups
 	Comparator<Post> sortByDate = new Comparator<Post>() {
 		public int compare(Post a, Post b) {
 			LocalDateTime Post1 = a.getDate();
@@ -54,7 +57,8 @@ public class Group{
 			return Post2.compareTo(Post1);
 			}};
 	//
-	//helper method comparator for sorting activity
+			
+	// comparator for sorting activity
 	Comparator<Member> sortByActive = new Comparator<Member>() {
 		public int compare(Member a, Member b) {
 			int Member1 = a.getQuestions(a.getGroup(title)).size()+a.getAnswers(a.getGroup(title)).size();
@@ -62,7 +66,7 @@ public class Group{
 
 			return Member2 - Member1;
 			}};
-			//
+	//
 
 	public int getNumMembers() {
 		return memberships.size();
