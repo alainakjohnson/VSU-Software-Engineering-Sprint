@@ -33,4 +33,5 @@ class Question extends Post {
 			   getText() + "\n" +
 			   "Created by user: " + getAuthor() + " on " + getDate() + "\n";
 	}
+
 }

@@ -7,6 +7,8 @@ public abstract class Post {
 	protected String text;
 	protected LocalDateTime date;
 	protected Membership membership;
+	protected int points = 0;
+	protected int vote;
 
 	public Post(String text, LocalDateTime date) {
 		this.text = text;
@@ -40,4 +42,27 @@ public abstract class Post {
 	protected Membership getMembership() {
 		return membership;
 	}
+	
+	//// Added for Requirement 6 ////
+	
+	//adds points to the question
+	void setPoints(int vote){
+		if(vote == 1) {
+ 			points++;
+ 		}
+ 		else if(vote == 0) {
+ 			points--;
+ 		}
+	}
+	
+	int getPoints(){
+		return points;
+	}
+	
+	//adds points to total member count.
+	void addToMemberPoints(int points){
+ 		points += membership.getPoints();
+ 		membership.setPoints(points);
+	}
+	
 }

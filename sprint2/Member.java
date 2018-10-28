@@ -14,6 +14,7 @@ public class Member {
 	private String screenName;
 	private String emailAddress;
 	private List<Membership> memberships = new ArrayList<Membership>();
+	protected int points;
 
     public Member(String firstName, String lastName, String screenName, String emailAddress, LocalDateTime dateCreated){
 
@@ -44,14 +45,16 @@ public class Member {
 		return screenName;
 	}
 
-	// HELPER METHODS
-	//helper method comparator for sorting Groups
+	//// HELPER METHODS ////
+	
+	// comparator for sorting Groups
 	Comparator<Group> sortByTitle = new Comparator<Group>() {
 		public int compare(Group a, Group b) {
 			return a.getTitle().compareToIgnoreCase(b.getTitle());
 			}};
 	//
-	//helper method comparator for sorting Posts by date
+			
+	// comparator for sorting Posts by date
 	Comparator<Post> sortByDate = new Comparator<Post>() {
 		public int compare(Post a, Post b) {
 			LocalDateTime Post1 = a.getDate();
@@ -60,7 +63,8 @@ public class Member {
 			return Post2.compareTo(Post1);
 			}};
 	//
-	//helper method comparator for sorting activity IN GROUP
+			
+	// comparator for sorting activity IN GROUP
 	Comparator<Group> sortByActive = new Comparator<Group>() {
 		public int compare(Group a, Group b) {
 			int Group1 = getQuestions(a).size()+getAnswers(a).size();
@@ -68,7 +72,7 @@ public class Member {
 
 			return Group2 - Group1;
 			}};
-			//
+	//
 
 
 	// joins member to group and records time joined
@@ -198,9 +202,24 @@ public class Member {
 	   recentAnswers = getAnswers(group).subList(0, n);
 	   return recentAnswers;
    }
+   
+	//// Added for Requirement 6 ////
 
+   //gets member's total points
+	int getPoints(){
+		int points = 0;
+		for (Membership m : memberships)
+			if(m.getMember() == this)
+				points = m.getPoints();
+		return points;
+	}
+ 	
+ 	void setVote(int vote, Post p){
+ 		p.setPoints(vote);
+ 	}
 
-
+ 	////
+ 	
    public String toString(){
 	    return "\nScreen Name: " + screenName
 	    		+ "\nFirst Name: " + firstName

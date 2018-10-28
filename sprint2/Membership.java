@@ -6,7 +6,7 @@ import java.util.List;
 
 class Membership{
 
-   //private int points;
+   private int points;
    private LocalDateTime dateJoined;
    private Member member;
    private Group group;
@@ -41,5 +41,13 @@ class Membership{
 
    List<Answer> getAnswers(){
 	   return answers;
+   }
+   
+   int getPoints(){
+	   return points;
+   }
+   
+   void setPoints(int points){
+	   this.points += points;
    }
 }
