@@ -15,7 +15,7 @@ public class PersistenceManager {
 	
 	public static boolean save(SiteManager sm, File file) {
 		try {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("site.bin"));
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
 			oos.writeObject(sm);
 			oos.close();
 			return true;
