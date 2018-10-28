@@ -62,6 +62,27 @@ public class IntMemberGroupMembership {
 		//Some Questions from BOB in Java Gods
 		bob.addQuestion(javaGods, question4, date);
 		bob.addQuestion(javaGods, question4, date);
+		
+		//Adding and removing votes from Question 1
+		bob.setVote(1, question1);
+		aaron.setVote(1, question1);
+		bart.setVote(1, question1);
+		// 3 points total for this question to Homer
+		
+		//Adding and removing votes from Question 2
+		bob.setVote(0, question2);
+		aaron.setVote(1, question2);
+		bart.setVote(0, question2);
+		// -1 points total for this question to Homer
+		
+		//Adding and removing votes from Question 3
+		bob.setVote(1, question3);
+		homer.setVote(1, question3);
+		// 2 points total for this question to Aaron
+		
+		//Adding and removing votes from Answer 1
+		aaron.setVote(1, answer1);
+		// 1 point total for this question to Bob
 
 
 		//MEMBER METHODS:
@@ -130,12 +151,17 @@ public class IntMemberGroupMembership {
 		System.out.println(bob.getAnswers(javaBeginners,3));
 		System.out.println("\n|================================|");
 		
-		//Retrieves points associated with the member
-		//Homer = 2 points; Bob = 0 points;
+		//returns total points for member
+		//Homer should have 2 points
+		//Bob should have 1 point
+		//Aaron should have 2 points
+		//Bart should have 0 points
 		System.out.println("\n|==========getPoints():==========|");
-		System.out.println(homer.getPoints());
-		System.out.println(bob.getPoints());
-		System.out.println("\n|================================|");
+		System.out.println("Homer's Points: " + homer.getPoints());
+		System.out.println("Bob's Points: " + bob.getPoints());
+		System.out.println("Aaron's Points: " + aaron.getPoints());
+		System.out.println("Bart's Points: " + bart.getPoints());
+		System.out.println("\n|================================|");		
 
 		System.out.println("\n************************************************");
 

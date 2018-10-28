@@ -67,20 +67,23 @@ public class IntPosts {
 			//Adding and removing votes from Question 1
 			bob.setVote(1, question1);
 			aaron.setVote(1, question1);
-			bart.setVote(0, question1);
+			bart.setVote(1, question1);
+			// 3 points total for this question to Homer
 			
 			//Adding and removing votes from Question 2
 			bob.setVote(0, question2);
 			aaron.setVote(1, question2);
 			bart.setVote(0, question2);
+			// -1 points total for this question to Homer
+			
+			//Adding and removing votes from Question 3
+			bob.setVote(1, question3);
+			homer.setVote(1, question3);
+			// 2 points total for this question to Aaron
 			
 			//Adding and removing votes from Answer 1
 			aaron.setVote(1, answer1);
-			
-			//Adding the points from the post to the members
-			question1.addToMemberPoints(question1.getPoints());
-			question2.addToMemberPoints(question2.getPoints());
-			answer1.addToMemberPoints(answer1.getPoints());
+			// 1 point total for this question to Bob
 	
 	System.out.println("\n************************************************");
 
@@ -94,13 +97,24 @@ public class IntPosts {
 	System.out.println("getAuthor(): " + question1.getAuthor());
 	System.out.println("getGroup(): " + question1.getGroup());
 	System.out.println("getAnswer(): " + question1.getAnswer());
-	System.out.println("getPoints(): " + question1.getPoints());
 	System.out.println("-------------------------------------");
 	System.out.println("getQuestion(): " + answer1.getQuestion());
 	System.out.println("-------------------------------------");
 	System.out.println("getMembership() for question1: \n" + question1.getMembership());
 	System.out.println("getMembership() for answer1: \n" + answer1.getMembership());
 	System.out.println("\n|=================================|");
+	
+	//returns total points for question
+	//Question 1 should be 3
+	//Question 2 should be -1
+	//Question 3 should be 2
+	//Answer 1 should be 1
+	System.out.println("\n|==========getPoints():==========|");
+	System.out.println("Question 1's Points: " + question1.getPoints());
+	System.out.println("Question 2's Points: " + question2.getPoints());
+	System.out.println("Question 3's Points: " + question3.getPoints());
+	System.out.println("Answer 1's Points: " + answer1.getPoints());
+	System.out.println("\n|================================|");
 
 	System.out.println("\n************************************************");
 

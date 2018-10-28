@@ -48,10 +48,12 @@ public abstract class Post {
 	//adds points to the question
 	void setPoints(int vote){
 		if(vote == 1) {
- 			points++;
+ 			this.points++;
+ 			addToMemberPoints(1);
  		}
  		else if(vote == 0) {
- 			points--;
+ 			this.points--;	
+ 			addToMemberPoints(-1);
  		}
 	}
 	
@@ -61,8 +63,7 @@ public abstract class Post {
 	
 	//adds points to total member count.
 	void addToMemberPoints(int points){
- 		points += membership.getPoints();
- 		membership.setPoints(points);
+ 		getAuthor().setPoints(points);
 	}
 	
 }

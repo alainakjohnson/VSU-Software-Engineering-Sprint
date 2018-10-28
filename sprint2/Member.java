@@ -207,11 +207,21 @@ public class Member {
 
    //gets member's total points
 	int getPoints(){
-		int points = 0;
-		for (Membership m : memberships)
-			if(m.getMember() == this)
-				points = m.getPoints();
+		for (Membership m : memberships) {
+			if(m.getMember() == this) {
+				this.points = m.getPoints();
+			}
+		}
 		return points;
+	}
+	
+	void setPoints(int newPoints){
+		for (Membership m : memberships) {
+			if(m.getMember() == this) {
+				m.setPoints(newPoints);
+			}
+		}
+		this.points += newPoints;
 	}
  	
  	void setVote(int vote, Post p){

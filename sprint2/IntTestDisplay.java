@@ -63,6 +63,27 @@ public class IntTestDisplay{
 		bob.addQuestion(javaGods, question4, date);
 		bob.addQuestion(javaGods, question4, date);
 		
+		//Adding and removing votes from Question 1
+		bob.setVote(1, question1);
+		aaron.setVote(1, question1);
+		bart.setVote(1, question1);
+		// 3 points total for this question to Homer
+		
+		//Adding and removing votes from Question 2
+		bob.setVote(0, question2);
+		aaron.setVote(1, question2);
+		bart.setVote(0, question2);
+		// -1 points total for this question to Homer
+		
+		//Adding and removing votes from Question 3
+		bob.setVote(1, question3);
+		homer.setVote(1, question3);
+		// 2 points total for this question to Aaron
+		
+		//Adding and removing votes from Answer 1
+		aaron.setVote(1, answer1);
+		// 1 point total for this question to Bob
+		
 		//MEMBER METHODS:
 		System.out.println("+===================MEMBER METHODS===================+");
 
@@ -127,6 +148,18 @@ public class IntTestDisplay{
 		//Should return: all answers even tho its less than 3
 		System.out.println("\n|==========getAnswers(Group, int):==========|");
 		System.out.println(bob.getAnswers(javaBeginners,3));
+		System.out.println("\n|================================|");
+		
+		//returns total points for member
+		//Homer should have 2 points
+		//Bob should have 1 point
+		//Aaron should have 2 points
+		//Bart should have 0 points
+		System.out.println("\n|==========getPoints():==========|");
+		System.out.println("Homer's Points: " + homer.getPoints());
+		System.out.println("Bob's Points: " + bob.getPoints());
+		System.out.println("Aaron's Points: " + aaron.getPoints());
+		System.out.println("Bart's Points: " + bart.getPoints());
 		System.out.println("\n|================================|");
 
 		System.out.println("\n************************************************");
@@ -211,6 +244,18 @@ public class IntTestDisplay{
 		System.out.println("getMembership() for question1: \n" + question1.getMembership());
 		System.out.println("getMembership() for answer1: \n" + answer1.getMembership());
 		System.out.println("\n|=================================|");
+		
+		//returns total points for question
+		//Question 1 should be 3
+		//Question 2 should be -1
+		//Question 3 should be 2
+		//Answer 1 should be 1
+		System.out.println("\n|==========getPoints():==========|");
+		System.out.println("Question 1's Points: " + question1.getPoints());
+		System.out.println("Question 2's Points: " + question2.getPoints());
+		System.out.println("Question 3's Points: " + question3.getPoints());
+		System.out.println("Answer 1's Points: " + answer1.getPoints());
+		System.out.println("\n|================================|");
 
 		System.out.println("\n************************************************");
 
@@ -240,51 +285,6 @@ public class IntTestDisplay{
 //		System.out.println("\n|===============================|");
 //
 		//////////////
-		
-		//Adding and removing votes from Question 1
-		bob.setVote(1, question1);
-		aaron.setVote(1, question1);
-		bart.setVote(0, question1);
-		
-		//Adding and removing votes from Question 2
-		bob.setVote(0, question2);
-		aaron.setVote(1, question2);
-		bart.setVote(0, question2);
-		
-		//Adding and removing votes from Answer 1
-		aaron.setVote(1, answer1);
-		
-		//Adding the points from the post to the members
-		question1.addToMemberPoints(question1.getPoints());
-		question2.addToMemberPoints(question2.getPoints());
-		answer1.addToMemberPoints(answer1.getPoints());
-		
-		System.out.println("\n|===============MEMBERS=================|");
-		
-		//returns total points for member
-		//Homer should have 3 points
-		//Bob should have 1 point
-		//Aaron should have 0 point
-		//Bart should have 0 points
-		System.out.println("\n|==========getPoints():==========|");
-		System.out.println("Homer's Points: " + homer.getPoints());
-		System.out.println("Bob's Points: " + bob.getPoints());
-		System.out.println("Aaron's Points: " + aaron.getPoints());
-		System.out.println("Bart's Points: " + bart.getPoints());
-		System.out.println("\n|================================|");
-	
-		System.out.println("\n|===============POSTS=================|");
-		
-		//returns total points for question
-		//Question 1 should be 2
-		//Question 2 should be -1
-		//Answer 1 should be 1
-		System.out.println("\n|==========getPoints():==========|");
-		System.out.println("Question 1's Points: " + question1.getPoints());
-		System.out.println("Question 2's Points: " + question2.getPoints());
-		System.out.println("Answer 1's Points: " + answer1.getPoints());
-		System.out.println("\n|================================|");
-	
 	}
 
 

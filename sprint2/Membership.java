@@ -47,7 +47,7 @@ class Membership{
 	   return points;
    }
    
-   void setPoints(int points){
-	   this.points += points;
+   void setPoints(int newPoints){
+	   points += newPoints;
    }
 }
