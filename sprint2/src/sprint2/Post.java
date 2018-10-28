@@ -7,6 +7,8 @@ public abstract class Post {
 	protected String text;
 	protected LocalDateTime date;
 	protected Membership membership;
+	protected int points = 0;
+	protected int vote;
 
 	public Post(String text, LocalDateTime date) {
 		this.text = text;
@@ -40,4 +42,32 @@ public abstract class Post {
 	protected Membership getMembership() {
 		return membership;
 	}
+<<<<<<< HEAD:sprint2/src/sprint2/Post.java
 }
+=======
+	
+	//// Added for Requirement 6 ////
+	
+	//adds points to the question
+	void setPoints(int vote){
+		if(vote == 1) {
+ 			this.points++;
+ 			addToMemberPoints(1);
+ 		}
+ 		else if(vote == 0) {
+ 			this.points--;	
+ 			addToMemberPoints(-1);
+ 		}
+	}
+	
+	int getPoints(){
+		return points;
+	}
+	
+	//adds points to total member count.
+	void addToMemberPoints(int points){
+ 		getAuthor().setPoints(points);
+	}
+	
+}
+>>>>>>> 4bc72b8da51e1b0465e6ac4c64df8093ba18ec7a:sprint2/Post.java
