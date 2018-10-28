@@ -12,6 +12,7 @@ class Membership{
    private Group group;
    private List<Question> questions = new ArrayList<Question>();
    private List<Answer> answers = new ArrayList<Answer>();
+   private List<Comment> comments = new ArrayList<Comment>();
 
    public Membership (Member member, Group group, LocalDateTime dateJoined){
    		this.member = member;
@@ -43,6 +44,8 @@ class Membership{
 	   return answers;
    }
    
+   //// Added for Requirement 6 ////
+   
    int getPoints(){
 	   return points;
    }
@@ -50,4 +53,10 @@ class Membership{
    void setPoints(int newPoints){
 	   points += newPoints;
    }
+   
+   List<Comment> getComments(){
+	   return comments;
+   }
+   
+   //
 }

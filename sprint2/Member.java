@@ -228,6 +228,17 @@ public class Member {
  		p.setPoints(vote);
  	}
 
+ 	
+    //adds a comment
+    public void addComment(Group group, Question question, Comment comment, LocalDateTime date){
+ 	   question.addComment(comment);
+ 	   for(Membership m : memberships)
+ 			  if(m.getGroup().equals(group)){
+ 				  comment.setMembership(m);
+ 				  m.getComments().add(comment);
+ 			  }
+    }
+ 	
  	////
  	
    public String toString(){

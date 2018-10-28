@@ -28,6 +28,8 @@ public class IntPosts {
 	Answer answer2 = new Answer(question2, "No one knows.", pastDate);
 	Answer answer3 = new Answer(question3, "I'm Homer.", LocalDateTime.now());
 	
+	Comment comment1 = new Comment (question1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla bibendum euismod sodales. Nullam finibus ex nec ornare feugiat. Curabitur hendrerit pellentesque nunc ut ullamcorper. Phasellus vulputate rhoncus purus, id pulvinar ligula cursus faucibus. Mauris tempus diam ex, eget accumsan quam dictum a. In mauris lectus, porttitor id urna vel, euismod ultricies justo. Curabitur convallis elementum leo, id dignissim enim luctus ut. Integer quis convallis est.", date);
+	
 	//VOID METHODS:
 
 			//Joining Bob to both groups
@@ -55,6 +57,9 @@ public class IntPosts {
 			//HOMER asks another question, and Bob answers it
 			homer.addQuestion(javaBeginners, question2, date);
 			bob.addAnswer(javaBeginners, question2, answer2, date);
+			
+			//BART adds a comment to question1
+			bart.addComment(javaBeginners, question1, comment1, date);
 
 			//AARON asks a question and Homer answers it
 			aaron.addQuestion(javaBeginners, question3, date);
@@ -115,6 +120,10 @@ public class IntPosts {
 	System.out.println("Question 3's Points: " + question3.getPoints());
 	System.out.println("Answer 1's Points: " + answer1.getPoints());
 	System.out.println("\n|================================|");
+	
+	System.out.println("\n+===================COMMENTS===================+");
+	System.out.println("getComment(): " + question1.getComment());
+	System.out.println("\n|=================================|");
 
 	System.out.println("\n************************************************");
 

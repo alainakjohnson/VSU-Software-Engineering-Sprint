@@ -6,10 +6,11 @@ import java.time.LocalDateTime;
 class Question extends Post {
 	private String title;
 	private List<Answer> answers = new ArrayList<Answer>();
+	private List<Comment> comments = new ArrayList<Comment>();
 
 	public Question(String title, String text, LocalDateTime date){
-			super(text, date);
-			this.title = title;
+		super(text, date);
+		this.title = title;
 	}
 
 	public String getTitle(){
@@ -27,6 +28,18 @@ class Question extends Post {
 	public List<Answer> getAnswer(){
 		return answers;
 	}
+
+	//// Added for Requirement 6 ////
+	
+	public void addComment(Comment comment){
+		comments.add(comment);
+	}
+
+	public List<Comment> getComment(){
+		return comments;
+	}
+	
+	////
 
 	public String toString(){
 		return getTitle() + "\n" +
