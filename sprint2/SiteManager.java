@@ -5,8 +5,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.time.LocalDateTime;
+import java.io.Serializable;
 
-public class SiteManager {
+public class SiteManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<Member> members = new ArrayList<Member>();
 	private List<Group> groups = new ArrayList<Group>();
 	
@@ -16,11 +21,12 @@ public class SiteManager {
 	
 	public boolean addMember(String firstName, String lastName, String screenName, String emailAddress, LocalDateTime dateCreated) {
 		Member temp = new Member(firstName, lastName, screenName, emailAddress, dateCreated);	
-		if(members.contains(temp))
-			return false;
-		else
-			members.add(temp);
-		return true;
+		for(Member m : members) {
+			if(m.getEmailAddress().equals(emailAddress))
+				return false;
+		}
+		members.add(temp);
+		return true;	
 	}
 	
 	public Member getMember(String emailAddress) {
@@ -67,11 +73,12 @@ public class SiteManager {
 	}
 	
 	public boolean addGroup(String title, String description, LocalDateTime dateCreated) {
-		Group temp = new Group(title, description, dateCreated);	
-		if(groups.contains(temp))
-			return false;
-		else
-			groups.add(temp);
+		Group temp = new Group(title, description, dateCreated);
+		for(Group g : groups) {
+			if(g.getTitle().equals(title))
+				return false;	
+		}
+		groups.add(temp);
 		return true;
 	}
 	
@@ -142,10 +149,17 @@ public class SiteManager {
 		List<Member> activeMembers = new ArrayList<Member>();
 		Collections.sort( members, new Comparator<Member>() {
 			public int compare(Member m1, Member m2) {
-				return Integer.compare((((Group) m1.getGroups()).getQuestions().size()+((Group) m1.getGroups()).getAnswers().size()), 
-									  (((Group) m2.getGroups()).getQuestions().size()+((Group) m2.getGroups()).getAnswers().size()));
+				int activity1 = 0;
+				int activity2 = 0;
+				for (Group g1 : groups) {
+					activity1 = activity1 + m1.getQuestions(g1).size() + m1.getAnswers(g1).size();
+				}
+				for (Group g2 : groups) {
+					activity2 = activity2 + m2.getQuestions(g2).size() + m2.getAnswers(g2).size();
+				}
+				return Integer.compare(activity1, activity2);
 			}				
-		});
+		}.reversed());
 		for(int i=0; i<=n; i++) {
 			Member temp;
 			temp = members.get(i);
