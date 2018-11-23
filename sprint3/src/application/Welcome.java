@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 import javafx.scene.layout.GridPane;
 
 
-public class Login extends Application {
+public class Welcome extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 
@@ -31,32 +31,45 @@ public class Login extends Application {
 			primaryStage.setScene(scene);
 			
 			primaryStage.setTitle("Sprint 3");
-			Text scenetitle = new Text("LOG IN");
+			Text scenetitle = new Text("");
 			scenetitle.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
 			grid.add(scenetitle, 0, 0, 2, 1);
 			
 			
+			Label firstName = new Label("First Name:");
+			grid.add(firstName, 0, 1);
+
+			TextField fnTextField = new TextField();
+			grid.add(fnTextField, 1, 1);
+			
+			
+			Label lastName = new Label("Last Name:");
+			grid.add(lastName, 0, 2);
+
+			TextField lnTextField = new TextField();
+			grid.add(lnTextField, 1, 2);
+			
 			Label email = new Label("Email:");
-			grid.add(email, 0, 1);
+			grid.add(email, 0, 3);
 
 			TextField emailTextField = new TextField();
-			grid.add(emailTextField, 1, 1);
+			grid.add(emailTextField, 1, 3);
 			
 			Label screenName = new Label("Screen Name:");
-			grid.add(screenName, 0, 2);
+			grid.add(screenName, 0, 4);
 
 			TextField screenTextField = new TextField();
-			grid.add(screenTextField, 1, 2);
+			grid.add(screenTextField, 1, 4);
 	        
 	       
 	        Button submitBtn = new Button();
 	        grid.add(submitBtn, 1, 5);
-	        submitBtn.setText("Login");
+	        submitBtn.setText("Create Account");
 	        submitBtn.setOnAction(new EventHandler<ActionEvent>() {
 	 
 	            @Override
 	            public void handle(ActionEvent event) {
-	                System.out.println("Login Member Action");
+	                System.out.println("Create Member Action");
 	            }
 	        });
 	        

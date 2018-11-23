@@ -31,45 +31,51 @@ public class Register extends Application {
 			primaryStage.setScene(scene);
 			
 			primaryStage.setTitle("Sprint 3");
-			Text scenetitle = new Text("SIGN UP");
-			scenetitle.setFont(Font.font("Tahoma", FontWeight.BOLD, 20));
-			grid.add(scenetitle, 0, 0);
-			
-			
-			Label firstName = new Label("First Name:");
-			grid.add(firstName, 0, 1);
+			Text scenetitle = new Text("Welcome [Screen Name]");
+			scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 15));
+			grid.add(scenetitle, 0, 0, 2, 1);
 
-			TextField fnTextField = new TextField();
-			grid.add(fnTextField, 1, 1);
-			
-			
-			Label lastName = new Label("Last Name:");
-			grid.add(lastName, 0, 2);
-
-			TextField lnTextField = new TextField();
-			grid.add(lnTextField, 1, 2);
-			
-			Label email = new Label("Email:");
-			grid.add(email, 0, 3);
-
-			TextField emailTextField = new TextField();
-			grid.add(emailTextField, 1, 3);
-			
-			Label screenName = new Label("Screen Name:");
-			grid.add(screenName, 0, 4);
-
-			TextField screenTextField = new TextField();
-			grid.add(screenTextField, 1, 4);
-	        
-	       
-	        Button submitBtn = new Button();
-	        grid.add(submitBtn, 1, 5);
-	        submitBtn.setText("Create Account");
-	        submitBtn.setOnAction(new EventHandler<ActionEvent>() {
+	        Button groupsBtn = new Button();
+	        grid.add(groupsBtn, 0, 1);
+	        groupsBtn.setText("Groups");
+	        groupsBtn.setOnAction(new EventHandler<ActionEvent>() {
 	 
 	            @Override
 	            public void handle(ActionEvent event) {
-	                System.out.println("Create Member Action");
+	                System.out.println("Groups List Action");
+	            }
+	        });
+	        
+	        Button createGroupBtn = new Button();
+	        grid.add(createGroupBtn, 0, 2);
+	        createGroupBtn.setText("Create Group");
+	        createGroupBtn.setOnAction(new EventHandler<ActionEvent>() {
+	 
+	            @Override
+	            public void handle(ActionEvent event) {
+	                System.out.println("Create Group Action");
+	            }
+	        });
+	        
+	        Button searchGroupsBtn = new Button();
+	        grid.add(searchGroupsBtn, 1, 1);
+	        searchGroupsBtn.setText("Search Groups");
+	        searchGroupsBtn.setOnAction(new EventHandler<ActionEvent>() {
+	 
+	            @Override
+	            public void handle(ActionEvent event) {
+	                System.out.println("Search Groups Action");
+	            }
+	        });
+	        
+	        Button btn = new Button();
+	        grid.add(btn, 1, 2);
+	        btn.setText("[Button]");
+	        btn.setOnAction(new EventHandler<ActionEvent>() {
+	 
+	            @Override
+	            public void handle(ActionEvent event) {
+	                System.out.println("Not sure why this button was in the drawing");
 	            }
 	        });
 	        
