@@ -242,7 +242,7 @@ public class Member {
  	////
  	
    public String toString(){
-	    return "\nScreen Name: " + screenName
+	    return "Screen Name: " + screenName
 	    		+ "\nFirst Name: " + firstName
 				+ "\nLast Name: " + lastName
 				+ "\nEmail Address: " + emailAddress

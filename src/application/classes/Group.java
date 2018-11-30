@@ -157,7 +157,7 @@ public class Group{
 		}
 
 	public String toString() {
-		return "\nTitle: " + title
+		return "Title: " + title
 				+ "\nDescription: " + description
 				+ "\nDate Created: " + dateCreated;
 	}

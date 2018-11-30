@@ -9,5 +9,6 @@
     <Button GridPane.rowIndex="1" GridPane.columnIndex="0" text="Create New Group" MaxWidth="200" onAction="#createGroup" />
     <Button GridPane.rowIndex="1" GridPane.columnIndex="1" text="Search All Groups" MaxWidth="200" onAction="#searchGroups" />
     <Button GridPane.rowIndex="2" GridPane.columnIndex="0" text="My Groups" MaxWidth="200" onAction="#myGroupList" />
-    <Button GridPane.rowIndex="2" GridPane.columnIndex="1" text="View All Groups" MaxWidth="200" onAction="#groupList" />
+    <Button GridPane.rowIndex="2" GridPane.columnIndex="1" text="Join a New Group" MaxWidth="200" onAction="#groupList" />
+    <Button GridPane.rowIndex="3" GridPane.columnIndex="1" text="Log Out" MaxWidth="200" onAction="#logout" />
 </GridPane>

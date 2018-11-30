@@ -38,4 +38,10 @@ public class Login implements Initializable {
 	    		actionLabel.setText("Invalid User");
 	    		}
 	    }
+	    
+	    public void register(ActionEvent actionEvent) throws IOException {
+	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/register.fxml"));
+	    	rootPane.getChildren().setAll(pane);
+	    	}   
+	    
 }

@@ -7,7 +7,9 @@
     <Label text = "Returning User" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.halignment="CENTER" fx:id="sceneTitle"/>
    	<Label text = "Screenname" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.halignment="CENTER" />
    	<TextField GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="screenname" />
-    <Button GridPane.rowIndex="2" GridPane.columnIndex="2" text="Submit" onAction="#submit" />
+    <Button GridPane.rowIndex="2" GridPane.columnIndex="2" MaxWidth="200" text="Submit" onAction="#submit" />
     
-    <Label GridPane.rowIndex="3" GridPane.halignment="CENTER" fx:id="actionLabel" />
+    <Button GridPane.rowIndex="3" GridPane.columnIndex="0" MaxWidth="200" text="Create An Account" onAction="#register" />
+    
+    <Label GridPane.rowIndex="4" GridPane.halignment="CENTER" fx:id="actionLabel" />
 </GridPane>

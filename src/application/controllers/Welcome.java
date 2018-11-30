@@ -23,22 +23,27 @@ public class Welcome implements Initializable {
 				}
 
 	    public void createGroup(ActionEvent actionEvent) throws IOException {
-	    	GridPane pane = FXMLLoader.load(getClass().getResource("creategroup.fxml"));
+	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/creategroup.fxml"));
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
 	    
 	    public void searchGroups(ActionEvent actionEvent) throws IOException {
-	    	GridPane pane = FXMLLoader.load(getClass().getResource("searchgroup.fxml"));
+	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/searchgroup.fxml"));
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
 	    
 	    public void myGroupList(ActionEvent actionEvent) throws IOException {
-	    	GridPane pane = FXMLLoader.load(getClass().getResource("usergroups.fxml"));
+	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/usergroups.fxml"));
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
 	    
 	    public void groupList(ActionEvent actionEvent) throws IOException {
-	    	GridPane pane = FXMLLoader.load(getClass().getResource("grouplist.fxml"));
+	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/grouplist.fxml"));
+	    	rootPane.getChildren().setAll(pane);
+	    	}    
+	    
+	    public void logout(ActionEvent actionEvent) throws IOException {
+	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/menu.fxml"));
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
 }

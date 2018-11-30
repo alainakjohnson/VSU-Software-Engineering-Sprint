@@ -24,6 +24,7 @@ public class Register implements Initializable {
 		public TextField email;
 	    public TextField screenname;
 	    public Label sceneTitle;
+	    public Label actionLabel;
 		
 	    @Override
 		public void initialize (URL url, ResourceBundle rb) {
@@ -39,8 +40,8 @@ public class Register implements Initializable {
 	    
 	    public void registerMember() {
 	    	Member member = new Member(firstname.getText(), lastname.getText(), screenname.getText(), email.getText(), LocalDateTime.now());
-	    	Context.getInstance().setCurrentMember(member);
-	    	Context.getInstance().currentMember();
+		    Context.getInstance().setCurrentMember(member);
+		    Context.getInstance().currentMember();
 	    }
 	    
 }
