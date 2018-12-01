@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import application.classes.Member;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,7 +27,7 @@ public class Register implements Initializable {
 		
 	    @Override
 		public void initialize (URL url, ResourceBundle rb) {
-	    	Context.getInstance().currentMember();
+	    	Context.getInstance().currentMember(email.getText());
 			}
 
 	    public void submit(ActionEvent actionEvent) throws IOException {
@@ -39,9 +38,9 @@ public class Register implements Initializable {
 	    	}    
 	    
 	    public void registerMember() {
-	    	Member member = new Member(firstname.getText(), lastname.getText(), screenname.getText(), email.getText(), LocalDateTime.now());
-		    Context.getInstance().setCurrentMember(member);
-		    Context.getInstance().currentMember();
+		    Context.getInstance().setCurrentMember(firstname.getText(), lastname.getText(), screenname.getText(), email.getText(), LocalDateTime.now());
+		    Context.getInstance().getSiteManager().addMember(firstname.getText(), lastname.getText(), screenname.getText(), email.getText(), LocalDateTime.now());
+		    Context.getInstance().currentMember(email.getText());
 	    }
 	    
 }
