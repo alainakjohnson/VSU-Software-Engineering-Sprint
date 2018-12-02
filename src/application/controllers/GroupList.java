@@ -36,13 +36,11 @@ public class GroupList implements Initializable {
 	    
 	    public ComboBox<Integer> selectPopular;
 	    public ComboBox<Integer> selectActive;
-	    public ComboBox<Group> joinGroup;
+	    public ComboBox<Group> selectGroup;
 
 		
 	    @Override
 		public void initialize (URL url, ResourceBundle rb) {
-	    	setGroups();
-	    	
 	    	ObservableList<Integer> popularOptions = FXCollections.observableArrayList(1, 2, 3);
 	    	selectPopular.setItems(popularOptions);
 	    	    	
@@ -50,7 +48,7 @@ public class GroupList implements Initializable {
 	    	selectActive.setItems(activeOptions);
 	    	
 	    	ObservableList<Group> joinableGroups = FXCollections.observableArrayList(Context.getInstance().getSiteManager().getGroups());
-	    	joinGroup.setItems(joinableGroups);
+	    	selectGroup.setItems(joinableGroups);
 			}
 
 	    public void getActiveNum(ActionEvent actionEvent) throws IOException {
@@ -64,18 +62,19 @@ public class GroupList implements Initializable {
 	    	}    
 	    
 	    public void joinGroup(ActionEvent actionEvent) throws IOException {
-	    	Context.getInstance().currentMember().joinGroup(joinGroup.getValue(), LocalDateTime.now());
+	    	Context.getInstance().currentMember().joinGroup(selectGroup.getValue(), LocalDateTime.now());
 	    	}    
+	    
+	    public void readMore(ActionEvent actionEvent) throws IOException {
+	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/groupdetails.fxml"));
+	    	rootPane.getChildren().setAll(pane);
+	    	}    
+	    
 	    
 	    public void complete(ActionEvent actionEvent) throws IOException {
 	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/welcome.fxml"));
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
-	    
-	    public void setGroups(){
-	    	groups = Context.getInstance().getSiteManager().getGroups();
-	    	allGroups.setText(groups.toString());
-	        }
 	    
 	    public void setActiveGroups(int activeNum){
 	    	if(activeNum < Context.getInstance().getSiteManager().getGroups().size()) {

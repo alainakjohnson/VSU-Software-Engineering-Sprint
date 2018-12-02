@@ -166,7 +166,7 @@ public class SiteManager implements Serializable{
 			temp = members.get(i);
 			activeMembers.add(temp);
 		}
-		return activeMembers;
+		return activeMembers.subList(0, n);
 	}
 }
 
