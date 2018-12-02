@@ -27,7 +27,7 @@ public class CreateGroup implements Initializable {
 		
 	    @Override
 		public void initialize (URL url, ResourceBundle rb) {
-	    	Context.getInstance().newGroup();
+	    	Context.getInstance().getGroup(title.getText());
 			}
 
 	    public void submit(ActionEvent actionEvent) throws IOException {
@@ -37,12 +37,12 @@ public class CreateGroup implements Initializable {
 	    	}    
 	    
 	    public void createGroup() {
-	    	Group group = new Group(title.getText(), description.getText(), LocalDateTime.now());
-		    Context.getInstance().createGroup(group);
-		    System.out.println(Context.getInstance().newGroup());
+	    	Context.getInstance().setNewGroup(title.getText(), description.getText(),LocalDateTime.now());
+	    	Context.getInstance().getSiteManager().addGroup(title.getText(), description.getText(),LocalDateTime.now());
+		    System.out.println(Context.getInstance().getSiteManager().getGroup(title.getText()));
+		    Context.getInstance().getGroup(title.getText());
+		    Context.getInstance().currentMember().joinGroup(Context.getInstance().getGroup(), LocalDateTime.now()); //autojoins member to group
 		    
-		    Context.getInstance().currentMember().joinGroup(group, LocalDateTime.now());
-	    	System.out.println(Context.getInstance().currentMember().getScreenName() + " has joined " + Context.getInstance().newGroup().getTitle());
+	    	System.out.println(Context.getInstance().currentMember().getScreenName() + " has joined " + Context.getInstance().getGroup().getTitle());
 	    }
-	    
 }

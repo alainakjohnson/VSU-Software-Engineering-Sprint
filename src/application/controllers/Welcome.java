@@ -27,12 +27,7 @@ public class Welcome implements Initializable {
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
 	    
-	    public void searchGroups(ActionEvent actionEvent) throws IOException {
-	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/searchgroup.fxml"));
-	    	rootPane.getChildren().setAll(pane);
-	    	}    
-	    
-	    public void myGroupList(ActionEvent actionEvent) throws IOException {
+	    public void userGroups(ActionEvent actionEvent) throws IOException {
 	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/usergroups.fxml"));
 	    	rootPane.getChildren().setAll(pane);
 	    	}    

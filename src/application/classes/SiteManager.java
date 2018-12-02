@@ -127,7 +127,7 @@ public class SiteManager implements Serializable{
 			temp = groups.get(i);
 			popularGroups.add(temp);
 		}
-		return popularGroups;
+		return popularGroups.subList(0, n);
 	}
 	
 	public List<Group> getActiveGroups(int n) {
@@ -142,8 +142,9 @@ public class SiteManager implements Serializable{
 			temp = groups.get(i);
 			activeGroups.add(temp);
 		}
-		return activeGroups;
+		return activeGroups.subList(0, n);
 	}
+	
 	
 	public List<Member> getActiveMembers(int n) {
 		List<Member> activeMembers = new ArrayList<Member>();
