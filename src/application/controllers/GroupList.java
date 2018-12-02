@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -35,6 +36,7 @@ public class GroupList implements Initializable {
 	    
 	    public ComboBox<Integer> selectPopular;
 	    public ComboBox<Integer> selectActive;
+	    public ComboBox<Group> joinGroup;
 
 		
 	    @Override
@@ -46,6 +48,9 @@ public class GroupList implements Initializable {
 	    	    	
 	    	ObservableList<Integer> activeOptions = FXCollections.observableArrayList(1, 2, 3);
 	    	selectActive.setItems(activeOptions);
+	    	
+	    	ObservableList<Group> joinableGroups = FXCollections.observableArrayList(Context.getInstance().getSiteManager().getGroups());
+	    	joinGroup.setItems(joinableGroups);
 			}
 
 	    public void getActiveNum(ActionEvent actionEvent) throws IOException {
@@ -56,6 +61,10 @@ public class GroupList implements Initializable {
 	    public void getPopularNum(ActionEvent actionEvent) throws IOException {
 	    	popularNum = selectPopular.getValue();
 	    	setPopularGroups(popularNum);
+	    	}    
+	    
+	    public void joinGroup(ActionEvent actionEvent) throws IOException {
+	    	Context.getInstance().currentMember().joinGroup(joinGroup.getValue(), LocalDateTime.now());
 	    	}    
 	    
 	    public void complete(ActionEvent actionEvent) throws IOException {

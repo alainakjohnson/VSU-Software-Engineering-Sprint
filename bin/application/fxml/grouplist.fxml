@@ -20,12 +20,10 @@
     
     <Label GridPane.rowIndex="1" GridPane.columnIndex="4" text="All Groups" GridPane.halignment="CENTER" />
     <Label GridPane.rowIndex="2" GridPane.columnIndex="4" fx:id="allGroups" />
-    <Button GridPane.rowIndex="4" GridPane.columnIndex="4" GridPane.halignment="CENTER" MaxWidth="200" text="Finish" onAction="#complete" />
-    
-    <Label GridPane.rowIndex="1" GridPane.columnIndex="4" text="All Groups" GridPane.halignment="CENTER" />
-    <Label GridPane.rowIndex="2" GridPane.columnIndex="4" fx:id="allGroups" />
-    <Button GridPane.rowIndex="4" GridPane.columnIndex="4" GridPane.halignment="CENTER" MaxWidth="200" text="Finish" onAction="#complete" />
+    <ComboBox GridPane.rowIndex="3" GridPane.columnIndex="4" GridPane.halignment="CENTER" MaxWidth="200" fx:id="joinGroup"/>
+    <Button GridPane.rowIndex="4" GridPane.columnIndex="4" GridPane.halignment="CENTER" MaxWidth="200" text="Join Group" onAction="#joinGroup" />
     
     <Label GridPane.rowIndex="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" fx:id="actionLabel" />
+     <Button GridPane.rowIndex="7" GridPane.columnIndex="4" GridPane.halignment="CENTER" MaxWidth="200" text="Finish" onAction="#complete" />
     
 </GridPane>
