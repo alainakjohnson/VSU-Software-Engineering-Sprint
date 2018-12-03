@@ -13,5 +13,6 @@
    	<TextField GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="email" />
    	<Label text = "Screenname" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.halignment="CENTER" />
    	<TextField GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="screenname" />
-    <Button GridPane.rowIndex="5" GridPane.columnIndex="2" text="Submit" onAction="#submit" />
+    <Button GridPane.rowIndex="5" GridPane.columnIndex="2" MaxWidth="200" text="Submit" onAction="#submit" />
+     <Label GridPane.rowIndex="6" GridPane.halignment="CENTER" fx:id="actionLabel" />
 </GridPane>
