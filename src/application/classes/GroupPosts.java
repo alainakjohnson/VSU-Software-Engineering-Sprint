@@ -1,4 +1,4 @@
-package application.controllers;
+package application.classes;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,20 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import application.classes.Group;
-
-public class UserGroups implements Initializable {
+public class GroupPosts implements Initializable {
 
 		@FXML	
 		private GridPane rootPane;
 	    public Label sceneTitle;
 	    public Label actionLabel;
-	    public Label groupDisplay;
-	    List<Group> groups = new ArrayList<Group>();
+	    public Label questionDisplay;
+	    List<Question> questions = new ArrayList<Question>();
 		
 	    @Override
 		public void initialize (URL url, ResourceBundle rb) {
-	    	sceneTitle.setText(Context.getInstance().currentMember().getScreenName() + "'s Groups");
+	    	sceneTitle.setText("Recent Posts for " + Context.getInstance().getGroup().getTitle());
 	    	setListView();
 			}
 
@@ -36,8 +34,8 @@ public class UserGroups implements Initializable {
 	    	}    
 	    
 	    public void setListView(){
-	    	groups = Context.getInstance().currentMember().getGroups();
-	    	groupDisplay.setText(groups.toString());
+	    	questions = Context.getInstance().getGroup().getQuestions();
+	    	questionDisplay.setText(questions.toString());
 	        }
 	    
 }

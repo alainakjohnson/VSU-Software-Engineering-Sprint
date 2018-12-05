@@ -1,4 +1,4 @@
-package application.controllers;
+package application.classes;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,8 +16,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import application.classes.Group;
 
 public class GroupList implements Initializable {
 

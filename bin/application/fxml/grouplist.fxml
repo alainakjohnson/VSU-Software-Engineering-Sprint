@@ -1,7 +1,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.TextField?>
-<GridPane fx:controller="application.controllers.GroupList"
+<GridPane fx:controller="application.classes.GroupList"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="5" vgap="10" fx:id="rootPane">
              
     <Label text = "Groups" GridPane.rowIndex="0" GridPane.columnIndex="3" GridPane.halignment="CENTER" />

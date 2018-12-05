@@ -1,8 +1,4 @@
-package application.controllers;
-
-import application.classes.Member;
-import application.classes.Group;
-import application.classes.SiteManager;
+package application.classes;
 
 import java.time.LocalDateTime;
 
