@@ -1,6 +1,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.TextField?>
+<<<<<<< HEAD
 <GridPane fx:controller="application.classes.GroupList"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="5" vgap="10" fx:id="rootPane">
              
@@ -26,4 +27,18 @@
     <Label GridPane.rowIndex="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" fx:id="actionLabel" />
      <Button GridPane.rowIndex="7" GridPane.columnIndex="4" GridPane.halignment="CENTER" MaxWidth="200" text="Finish" onAction="#complete" />
     
+=======
+<GridPane fx:controller="application.controllers.GroupList"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" fx:id="rootPane">
+         
+    <Label text = "Groups" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.halignment="LEFT" />
+    <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Most Active Groups" />
+    <Label GridPane.rowIndex="2" GridPane.columnIndex="0" fx:id="mostActiveGroups" />
+    <Label GridPane.rowIndex="1" GridPane.columnIndex="1" text="Most Popular Groups" />
+    <Label GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="mostPopularGroups" />
+    <Label GridPane.rowIndex="1" GridPane.columnIndex="2" text="All Groups"/>
+    <Label GridPane.rowIndex="2" GridPane.columnIndex="2" fx:id="allGroups" />
+    <Button GridPane.rowIndex="3" GridPane.columnIndex="2" MaxWidth="200" text="Finish" onAction="#complete" />
+    <Label GridPane.rowIndex="3" GridPane.halignment="CENTER" fx:id="actionLabel" />
+>>>>>>> 30b4a11f06443e8a236f37b1faa4056ae76db77a
 </GridPane>

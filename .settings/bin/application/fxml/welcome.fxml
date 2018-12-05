@@ -1,0 +1,13 @@
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.TextField?>
+<GridPane fx:controller="application.controllers.Welcome"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" fx:id="rootPane">
+    
+    <Label text = "Welcome" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.halignment="CENTER" fx:id="sceneTitle"/>
+   	
+    <Button GridPane.rowIndex="1" GridPane.columnIndex="0" text="Create New Group" MaxWidth="200" onAction="#createGroup" />
+    <Button GridPane.rowIndex="1" GridPane.columnIndex="1" text="Your Groups" MaxWidth="200" onAction="#userGroups" />
+    <Button GridPane.rowIndex="1" GridPane.columnIndex="2" text="GroupList" MaxWidth="200" onAction="#groupList" />
+    <Button GridPane.rowIndex="2" GridPane.columnIndex="2" text="Log Out" MaxWidth="200" onAction="#logout" />
+</GridPane>
