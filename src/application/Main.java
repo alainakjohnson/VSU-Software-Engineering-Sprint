@@ -11,8 +11,11 @@ public class Main extends Application {
 	    public void start(Stage primaryStage) throws Exception{
 	        Parent root = FXMLLoader.load(getClass().getResource("fxml/menu.fxml")); 
 	        primaryStage.setTitle("Menu");
-	        primaryStage.setScene(new Scene(root, 800, 600));
+	        primaryStage.setScene(new Scene(root, 1000, 700));
 	        primaryStage.show();
+	    }
+	    public static void main (String[] args) {
+	    	launch(args);
 	    }
 	   
 }

@@ -1,0 +1,25 @@
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.TextField?>
+<GridPane fx:controller="application.classes.GroupDetails"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="5" vgap="10" fx:id="rootPane">
+             
+    <Label text = "Groups" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="groupTitle" />
+    
+    <Label GridPane.rowIndex="1" GridPane.columnIndex="1" text="Member List" GridPane.halignment="CENTER" />
+    <ComboBox GridPane.rowIndex="2" GridPane.columnIndex="1" MaxWidth="400" fx:id="selectMembers" />
+    <Label GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.halignment="CENTER" text="Displaying all members. Filter most active members?" fx:id="actionLabel" />
+    <ComboBox GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.halignment="CENTER" MaxWidth="400" fx:id="selectActive"/>
+    <Button GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" MaxWidth="400" text="Select" onAction="#getActiveNum" />
+    
+     <Label GridPane.rowIndex="8" GridPane.columnIndex="1" text="Ask Question" GridPane.halignment="CENTER" />
+     
+     <TextField GridPane.rowIndex="9" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="qTitleBlank" />
+     <TextField GridPane.rowIndex="10" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="qTextBlank" />
+     <Button GridPane.rowIndex="11" GridPane.columnIndex="1" GridPane.halignment="CENTER" MaxWidth="400" text="Ask Question" onAction="#submitQuestion" />
+
+    <Button GridPane.rowIndex="12" GridPane.columnIndex="1" GridPane.halignment="CENTER" MaxWidth="400" text="Read Posts" onAction="#groupPosts" />
+    
+    <Button GridPane.rowIndex="13" GridPane.columnIndex="3" GridPane.halignment="CENTER" MaxWidth="400" text="Finish" onAction="#complete" />
+    
+</GridPane>

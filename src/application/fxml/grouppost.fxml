@@ -1,0 +1,25 @@
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.*?>
+<GridPane fx:controller="application.classes.GroupPosts"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" fx:id="rootPane">
+         
+    <Label text = "Posts for Group" GridPane.rowIndex="0" GridPane.columnIndex="2" GridPane.halignment="LEFT" fx:id="sceneTitle"/>
+    
+    <ComboBox GridPane.rowIndex="1" GridPane.columnIndex="1" MaxWidth="400" fx:id="allQuestions" />
+    
+    <ComboBox GridPane.rowIndex="2" GridPane.columnIndex="1" MaxWidth="400" fx:id="filterQuestions" />
+    <Button GridPane.rowIndex="3" GridPane.columnIndex="1" MaxWidth="400" text="Filter Questions" onAction="#filterQuestions" />
+    
+    <Label GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.halignment="CENTER" text = "Supply an answer:" />
+    <TextField GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="aTextBlank" />
+    
+    <Button GridPane.rowIndex="6" GridPane.columnIndex="1" MaxWidth="400" text="Reply" onAction="#reply" />
+    
+    <Label GridPane.rowIndex="1" GridPane.columnIndex="2" MaxWidth="400" fx:id="answerDisplay" />
+    
+    <ComboBox GridPane.rowIndex="2" GridPane.columnIndex="2" MaxWidth="400" fx:id="filterAnswers" />
+    <Button GridPane.rowIndex="3" GridPane.columnIndex="2" MaxWidth="400" text="Filter Answers" onAction="#filterAnswers" />
+    <Button GridPane.rowIndex="4" GridPane.columnIndex="2" MaxWidth="400" text="Show Only Answers To Selected Question" onAction="#questionAnswers" />
+    
+    <Button GridPane.rowIndex="5" GridPane.columnIndex="3" MaxWidth="200" text="Finish" onAction="#complete" />
+</GridPane>

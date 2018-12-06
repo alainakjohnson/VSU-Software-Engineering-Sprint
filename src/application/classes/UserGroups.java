@@ -1,4 +1,4 @@
-package application.controllers;
+package application.classes;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,8 +12,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
-import application.classes.Group;
 
 public class UserGroups implements Initializable {
 
