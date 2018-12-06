@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,13 +24,11 @@ public class Menu implements Initializable {
 				}
 
 		public void existingUser(ActionEvent actionEvent) throws IOException {
-		    	//actionLabel.setText("login");
 		    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/login.fxml"));
 		    	rootPane.getChildren().setAll(pane);
 				}
 
 	    public void newUser(ActionEvent actionEvent) throws IOException {
-		    	//actionLabel.setText("login");
 		    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/register.fxml"));
 		    	rootPane.getChildren().setAll(pane);
 				}

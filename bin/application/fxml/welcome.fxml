@@ -7,7 +7,7 @@
     <Label text = "Welcome" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.halignment="CENTER" fx:id="sceneTitle"/>
    	
     <Button GridPane.rowIndex="1" GridPane.columnIndex="0" text="Create New Group" MaxWidth="200" onAction="#createGroup" />
-    <Button GridPane.rowIndex="1" GridPane.columnIndex="1" text="Your Groups" MaxWidth="200" onAction="#userGroups" />
-    <Button GridPane.rowIndex="1" GridPane.columnIndex="2" text="GroupList" MaxWidth="200" onAction="#groupList" />
+    <Button GridPane.rowIndex="1" GridPane.columnIndex="1" text="Member Profile" MaxWidth="200" onAction="#memberDetails" />
+    <Button GridPane.rowIndex="1" GridPane.columnIndex="2" text="Group List" MaxWidth="200" onAction="#groupList" />
     <Button GridPane.rowIndex="2" GridPane.columnIndex="2" text="Log Out" MaxWidth="200" onAction="#logout" />
 </GridPane>

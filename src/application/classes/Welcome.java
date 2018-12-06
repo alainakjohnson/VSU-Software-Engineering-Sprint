@@ -27,8 +27,9 @@ public class Welcome implements Initializable {
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
 	    
-	    public void userGroups(ActionEvent actionEvent) throws IOException {
-	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/usergroups.fxml"));
+	    public void memberDetails(ActionEvent actionEvent) throws IOException {
+	    	//Context.getInstance().activeMember(Context.getInstance().currentMember().getEmailAddress());
+	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/memberdetails.fxml"));
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
 	    

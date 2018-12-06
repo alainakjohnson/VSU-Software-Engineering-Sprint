@@ -64,10 +64,10 @@ public class GroupList implements Initializable {
 	    	}    
 	    
 	    public void readMore(ActionEvent actionEvent) throws IOException {
+	    	Context.getInstance().activeGroup(selectGroup.getValue().getTitle());
 	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/groupdetails.fxml"));
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
-	    
 	    
 	    public void complete(ActionEvent actionEvent) throws IOException {
 	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/welcome.fxml"));

@@ -60,6 +60,7 @@ public class GroupDetails implements Initializable {
 	    	}  
 	    
 	    public void readMore(ActionEvent actionEvent) throws IOException {
+	    	Context.getInstance().activeMember(selectMembers.getValue().getEmailAddress());
 	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/memberdetails.fxml"));
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
@@ -73,7 +74,7 @@ public class GroupDetails implements Initializable {
 	    	if(activeNum < Context.getInstance().getSiteManager().getMembers().size()) {
 		    	ObservableList<Member> activeMems = FXCollections.observableArrayList(Context.getInstance().getSiteManager().getActiveMembers(activeNum));
 		    	selectMembers.setItems(activeMems);
-		    	actionLabel.setText("");
+		    	actionLabel.setText("Displaying " + activeNum + "most active groups");
 		    	
 	    		}
 	    	else {

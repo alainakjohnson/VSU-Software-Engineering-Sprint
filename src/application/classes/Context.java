@@ -9,7 +9,10 @@ public class Context {
         return instance;
     }
     
-    private Member member = new Member(null,null,null,null,null);
+    //presentation values
+    private Member member = new Member("admin", "admin", "admin", "admin", LocalDateTime.now());
+    
+//    private Member member = new Member(null,null,null,null,null);
     private Group group = new Group(null,null,null);
     private SiteManager siteManager = new SiteManager();
     
@@ -21,13 +24,19 @@ public class Context {
         return siteManager;
     }
     
-    // making and adding new member
+    // CURRENT INSTANCE MEMBER MANAGER
     
     public void setCurrentMember(String firstname, String lastname, String screenname, String email, LocalDateTime dateCreated){
     	siteManager.addMember(firstname, lastname, screenname, email, LocalDateTime.now());
     }
     
-    public Member currentMember(String email) {
+    public Member activeMember(String email) { // this is the member whose information we're looking at
+    	this.member = siteManager.getMember(email);
+        return member;
+    }
+    
+    
+    public Member currentMember(String email) { // this is the member who is logged in
     	this.member = siteManager.getMember(email);
         return member;
     }
@@ -36,13 +45,18 @@ public class Context {
     	return member;
     }
     
-    // making and adding new group
-    
+    //CURRENT INSTANCE GROUP MANAGER
+ 
     public void setNewGroup(String title, String description, LocalDateTime dateCreated) {
         siteManager.addGroup(title, description, dateCreated);
     }
+    
+    public Group activeGroup(String title) { // this is the group whose information we're looking at
+    	this.group = siteManager.getGroup(title);
+        return group;
+    }
    
-    public Group getGroup(String title) {
+    public Group getGroup(String title) { // this is the group we most recently created
     	this.group = siteManager.getGroup(title);
         return group;
     }

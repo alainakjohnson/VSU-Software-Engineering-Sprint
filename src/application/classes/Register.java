@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class Register implements Initializable {
-
 	
 		@FXML	
 		private GridPane rootPane;
@@ -34,7 +33,6 @@ public class Register implements Initializable {
 	    	registerMember();
 	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/login.fxml"));
 	    	rootPane.getChildren().setAll(pane);
-	    	
 	    	}    
 	    
 	    public void registerMember() {
