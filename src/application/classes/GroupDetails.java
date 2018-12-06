@@ -59,12 +59,6 @@ public class GroupDetails implements Initializable {
 	    	setActiveGroups(activeNum);
 	    	}  
 	    
-	    public void readMore(ActionEvent actionEvent) throws IOException {
-	    	Context.getInstance().activeMember(selectMembers.getValue().getEmailAddress());
-	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/memberdetails.fxml"));
-	    	rootPane.getChildren().setAll(pane);
-	    	}    
-	    
 	    public void complete(ActionEvent actionEvent) throws IOException {
 	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/welcome.fxml"));
 	    	rootPane.getChildren().setAll(pane);
@@ -74,7 +68,7 @@ public class GroupDetails implements Initializable {
 	    	if(activeNum < Context.getInstance().getSiteManager().getMembers().size()) {
 		    	ObservableList<Member> activeMems = FXCollections.observableArrayList(Context.getInstance().getSiteManager().getActiveMembers(activeNum));
 		    	selectMembers.setItems(activeMems);
-		    	actionLabel.setText("Displaying " + activeNum + "most active groups");
+		    	actionLabel.setText("Displaying " + activeNum + " most active members");
 		    	
 	    		}
 	    	else {
@@ -99,7 +93,7 @@ public class GroupDetails implements Initializable {
 	    }
 	    
 	    public void groupPosts(ActionEvent actionEvent) throws IOException {
-	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/groupposts.fxml"));
+	    	GridPane pane = FXMLLoader.load(getClass().getResource("../fxml/grouppost.fxml"));
 	    	rootPane.getChildren().setAll(pane);
 	    	}    
 	    

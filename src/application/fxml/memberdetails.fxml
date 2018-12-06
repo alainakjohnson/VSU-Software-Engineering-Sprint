@@ -3,10 +3,9 @@
 <GridPane fx:controller="application.classes.MemberDetails"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="5" vgap="10" fx:id="rootPane">
              
-    <Label text = "Member" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="memberTitle" />
+    <Label text = "Member" GridPane.rowIndex="0" GridPane.columnIndex="2" GridPane.halignment="CENTER" fx:id="memberTitle" />
     
     <Label GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="CENTER" fx:id="memberProfile" />
-    
     <Label GridPane.rowIndex="1" GridPane.columnIndex="3" GridPane.halignment="CENTER" fx:id="memberPoints" />
     
     <Label GridPane.rowIndex="3" GridPane.columnIndex="1" text="Member's Groups" GridPane.halignment="CENTER" fx:id="memberGroups"/>
@@ -21,17 +20,17 @@
      
     <Label GridPane.rowIndex="4" GridPane.columnIndex="2" GridPane.halignment="CENTER" fx:id="memberQuestions" />
     <Label GridPane.rowIndex="5" GridPane.columnIndex="2" GridPane.halignment="CENTER" text="Filter Questions?" fx:id="questionLabel" />
-	<ComboBox GridPane.rowIndex="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" MaxWidth="400" fx:id="filterQuestions"/>
-    <Button GridPane.rowIndex="7" GridPane.columnIndex="2" GridPane.halignment="CENTER" MaxWidth="400" text="Select" onAction="#filterQuestions" />
+	<ComboBox GridPane.rowIndex="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" MaxWidth="200" fx:id="filterQuestions"/>
+    <Button GridPane.rowIndex="7" GridPane.columnIndex="2" GridPane.halignment="CENTER" MaxWidth="200" text="Select" onAction="#filterQuestions" />
     
     <Label GridPane.rowIndex="3" GridPane.columnIndex="3" text="Member's Answers" GridPane.halignment="CENTER" />
      
     <Label GridPane.rowIndex="4" GridPane.columnIndex="3" GridPane.halignment="CENTER" fx:id="memberAnswers" />
     <Label GridPane.rowIndex="5" GridPane.columnIndex="3" GridPane.halignment="CENTER" text="Filter Answers" fx:id="answerLabel" />
-    <ComboBox GridPane.rowIndex="6" GridPane.columnIndex="3" GridPane.halignment="CENTER" MaxWidth="400" fx:id="filterAnswers"/>
-    <Button GridPane.rowIndex="7" GridPane.columnIndex="3" GridPane.halignment="CENTER" MaxWidth="400" text="Select" onAction="#filterAnswers" />
+    <ComboBox GridPane.rowIndex="6" GridPane.columnIndex="3" GridPane.halignment="CENTER" MaxWidth="200" fx:id="filterAnswers"/>
+    <Button GridPane.rowIndex="7" GridPane.columnIndex="3" GridPane.halignment="CENTER" MaxWidth="200" text="Select" onAction="#filterAnswers" />
 
     
-    <Button GridPane.rowIndex="11" GridPane.columnIndex="3" GridPane.halignment="CENTER" MaxWidth="400" text="Finish" onAction="#complete" />
+    <Button GridPane.rowIndex="11" GridPane.columnIndex="3" GridPane.halignment="CENTER" MaxWidth="200" text="Finish" onAction="#complete" />
     
 </GridPane>

@@ -9,10 +9,8 @@ public class Context {
         return instance;
     }
     
-    //presentation values
-    private Member member = new Member("admin", "admin", "admin", "admin", LocalDateTime.now());
-    
-//    private Member member = new Member(null,null,null,null,null);
+
+    private Member member = new Member(null,null,null,null,null);
     private Group group = new Group(null,null,null);
     private SiteManager siteManager = new SiteManager();
     
@@ -28,11 +26,6 @@ public class Context {
     
     public void setCurrentMember(String firstname, String lastname, String screenname, String email, LocalDateTime dateCreated){
     	siteManager.addMember(firstname, lastname, screenname, email, LocalDateTime.now());
-    }
-    
-    public Member activeMember(String email) { // this is the member whose information we're looking at
-    	this.member = siteManager.getMember(email);
-        return member;
     }
     
     

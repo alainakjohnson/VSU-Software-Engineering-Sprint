@@ -8,12 +8,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -47,8 +45,6 @@ public class MemberDetails implements Initializable {
 	    public ComboBox<Integer> filterAnswers;
 	    public ComboBox<Integer> selectActive;
 	    public ComboBox<Group> selectGroup;
-//	    public ComboBox<Question> selectQuestion;
-//	    public ComboBox<Answer> selectAnswer;
 		
 	    @Override
 		public void initialize (URL url, ResourceBundle rb) {
@@ -56,6 +52,7 @@ public class MemberDetails implements Initializable {
 	    	memberTitle.setText("Details for Member: " + Context.getInstance().currentMember().getScreenName());
 	    	memberGroups.setText(Context.getInstance().currentMember().getScreenName() + "'s Groups");
 	    	memberProfile.setText(Context.getInstance().currentMember().toString());
+	    	memberPoints.setText("Member's Points: " + String.valueOf(Context.getInstance().currentMember().getPoints()));
 	    	
 	    	ObservableList<Group> userGroups = FXCollections.observableArrayList(Context.getInstance().currentMember().getGroups());
 	    	selectGroup.setItems(userGroups);
@@ -116,15 +113,11 @@ public class MemberDetails implements Initializable {
 	    
 	    public void setQuestionNum(int questionFilter){
 	    	if(questionFilter < Context.getInstance().currentMember().getQuestions(selectGroup.getValue()).size()) {
-	    		//ObservableList<Group> activeGroups = FXCollections.observableArrayList(Context.getInstance().currentMember().getGroups(activeNum));
-		    	//selectGroup.setItems(activeGroups);
 	    	memberQuestions.setText(Context.getInstance().currentMember().getQuestions(selectGroup.getValue(), questionFilter).toString());
-		    actionLabel.setText("Displaying " + activeNum + "most recent questions");
+		    actionLabel.setText("Displaying " + questionFilter + " most recent questions");
 		    	
 	    		}
 	    	else {
-//	    		ObservableList<Group> activeGroups = FXCollections.observableArrayList(Context.getInstance().currentMember().getGroups());
-//	    		selectGroup.setItems(activeGroups);
 	    		memberQuestions.setText(Context.getInstance().currentMember().getQuestions(selectGroup.getValue()).toString());
 	    		actionLabel.setText("There are fewer questions than requested.");
 	    		}
@@ -134,15 +127,11 @@ public class MemberDetails implements Initializable {
 	    
 	    public void setAnswerNum(int answerFilter){
 	    	if(answerFilter < Context.getInstance().currentMember().getAnswers(selectGroup.getValue()).size()) {
-	    		//ObservableList<Group> activeGroups = FXCollections.observableArrayList(Context.getInstance().currentMember().getGroups(activeNum));
-		    	//selectGroup.setItems(activeGroups);
 	    	memberAnswers.setText(Context.getInstance().currentMember().getQuestions(selectGroup.getValue(), answerFilter).toString());
-		    actionLabel.setText("Displaying " + activeNum + "most recent answers");
+		    actionLabel.setText("Displaying " + answerFilter + " most recent answers");
 		    	
 	    		}
 	    	else {
-//	    		ObservableList<Group> activeGroups = FXCollections.observableArrayList(Context.getInstance().currentMember().getGroups());
-//	    		selectGroup.setItems(activeGroups);
 	    		memberAnswers.setText(Context.getInstance().currentMember().getAnswers(selectGroup.getValue()).toString());
 	    		actionLabel.setText("There are fewer answers than requested.");
 	    		}
